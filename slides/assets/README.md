@@ -14,3 +14,10 @@
   (또는 https://openai.com/index/gpt-5-6/)
 
 내부 발표 인용 용도이며 출처를 카드/캡션에 명시할 것.
+
+## part1/profile-instructions.png (파일 대기 중)
+
+#6b(페르소나와 instructions)의 예시 캡처 — claude.ai 설정 → Profile의
+"Instructions for Claude" 화면. 발표자가 채팅에 인라인으로 공유한 캡처가
+파일로 저장되지 않아, 캡처 파일을 이 이름으로 넣은 뒤 part1 초안(KO/EN)의
+주석 처리된 이미지 참조를 활성화할 것.

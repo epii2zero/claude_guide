@@ -101,11 +101,16 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 
 - **페르소나(역할) 부여** — 답변의 관점·톤·기준을 잡아주는 챗봇 시대의 대표 사용법
 - 문제: 같은 역할·규칙을 **매 대화마다 반복** 입력해야 했다
-- 그래서 기능이 됐다:
+- 그래서 기능이 됐다 — 담는 곳이 곧 적용 범위:
   - **시스템 프롬프트** (2023.11, API) — 역할·규칙을 대화에서 분리해 고정
-  - **Projects 커스텀 지침** (2024.06) — 담아두고 재사용, 누구나 (잠시 후 자세히)
+  - **개인 지침** (claude.ai 프로필 "Instructions for Claude") — 내 계정 **전역**에 적용
+  - **Projects 커스텀 지침** (2024.06) — **프로젝트 단위** (잠시 후 자세히)
 
 **여기서 시작된 instructions의 계보가 CLAUDE.md → skills까지 이어진다**
+
+<!-- 캡처 추가 대기: 프로필 설정 화면 (assets/part1/profile-instructions.png 로 저장 후
+![bg right:35% fit](assets/part1/profile-instructions.png) 활성화 + 캡션
+*< 클로드 프로필의 개인 지침 설정 >* 추가) -->
 
 <!--
 #6b | 3분 | 지시의 계보 부 축의 출발 정거장 (스피커 노트에서 본문으로 승격)
@@ -113,6 +118,8 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 - Introduction ② 매핑 회수: **instructions**의 출발점이 여기.
 - 복선: "반복하는 지시를 담아두려는 이 흐름, 기억해두세요 — Projects(#10),
   CLAUDE.md, 그리고 발표 후반부의 스킬까지 이어집니다."
+- 개인 지침: 후배 은유로 "후배가 나를 뭐라고 부를지, 내 일하는 방식을 미리
+  알려주는 것". 적용 범위(계정 전역/프로젝트/레포/동적 로딩) 프레임의 시작.
 - 페르소나 예시는 실제 응답 차이 캡처 1장으로 대체 가능 (준비물 후보).
 -->
 
