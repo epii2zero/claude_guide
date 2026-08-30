@@ -29,9 +29,13 @@ jobs:
           mkdir -p dist
           for f in slides/*-draft.md; do
             name=$(basename "$f" -draft.md)
-            npx -y @marp-team/marp-cli@latest --theme-set slides/themes/lab.css "$f" -o "dist/${name}.html"
+            # 주의: --theme-set은 배열 옵션이라 뒤에 오는 입력 파일까지 삼킨다.
+            # 입력 파일을 반드시 옵션보다 앞에 둘 것.
+            npx -y @marp-team/marp-cli@latest "$f" --theme-set slides/themes/lab.css -o "dist/${name}.html"
           done
           [ -d slides/assets ] && cp -r slides/assets dist/assets || true
+          # 렌더 산출물 검증: 슬라이드 HTML이 하나도 없으면 실패시켜 빈 배포를 막는다
+          ls dist/part*.html
 
       # 최종 PPTX가 만들어지면 여기서 PDF 변환본과 다운로드용 원본을 dist에 추가:
       #   sudo apt-get install -y libreoffice
