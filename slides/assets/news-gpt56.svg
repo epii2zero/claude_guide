@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="310" viewBox="0 0 1000 310">
+  <defs>
+    <filter id="s" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect x="8" y="6" width="984" height="294" rx="14" fill="#FFFFFF" filter="url(#s)"/>
+  <rect x="8" y="6" width="984" height="294" rx="14" fill="none" stroke="#D8DEE8" stroke-width="1.5"/>
+
+  <circle cx="52" cy="52" r="14" fill="#1A1A1A"/>
+  <text x="52" y="58" font-family="Georgia, serif" font-size="17" fill="#FFFFFF" text-anchor="middle" font-weight="bold">D</text>
+  <text x="78" y="58" font-family="Arial, sans-serif" font-size="19" fill="#5A6472">the-decoder.com · 2026.07</text>
+
+  <text x="44" y="118" font-family="Georgia, 'Times New Roman', serif" font-size="33" fill="#111826" font-weight="bold">OpenAI's GPT-5.6 Sol reportedly solves</text>
+  <text x="44" y="160" font-family="Georgia, 'Times New Roman', serif" font-size="33" fill="#111826" font-weight="bold">a 50-year-old math problem</text>
+
+  <text x="44" y="215" font-family="'Malgun Gothic', Arial, sans-serif" font-size="22" fill="#37414F">사이클 이중 덮개 추측(~50년) 증명 발표 — 수학자들 "우아한 증명"</text>
+  <text x="44" y="252" font-family="'Malgun Gothic', Arial, sans-serif" font-size="22" fill="#37414F">동료 검토·형식 검증은 진행 중</text>
+</svg>

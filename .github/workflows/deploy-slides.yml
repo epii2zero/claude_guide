@@ -31,6 +31,7 @@ jobs:
             name=$(basename "$f" -draft.md)
             npx -y @marp-team/marp-cli@latest "$f" -o "dist/${name}.html"
           done
+          [ -d slides/assets ] && cp -r slides/assets dist/assets || true
 
       # 최종 PPTX가 만들어지면 여기서 PDF 변환본과 다운로드용 원본을 dist에 추가:
       #   sudo apt-get install -y libreoffice
