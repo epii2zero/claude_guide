@@ -108,12 +108,12 @@ def list_orders(page: int, size: int = 20):
 
 ---
 
-## 시연 4 — Artifacts: 동작하는 목업 (#9, **축소** — 사전 녹화 30초 또는 캡처 2장)
+## 시연 4 — (삭제됨) Artifacts 목업
 
-> Artifacts가 간단 언급으로 축소되면서 라이브 생성은 하지 않는다.
-> 아래 스크립트는 **사전 녹화/캡처 제작용**: 생성 직후 화면 + 필터 탭 추가 후 화면.
+> Artifacts 슬라이드가 발표에서 제외되어(2026-08-31) 이 시연과 준비물(pets_api.md)은
+> 불필요. 스크립트는 참고용으로만 남김.
 
-**목적**: "대화가 아니라 산출물"을 보여주기.
+**목적**: (제외됨) "대화가 아니라 산출물"을 보여주기.
 
 **준비물** (`demo/part1/`)
 - `pets_api.md` — 간단한 가짜 API 명세 (아래 초안)
@@ -191,8 +191,8 @@ Part 1에서 가장 공들이는 시연 — Projects 확대 방침에 맞춰 2�
 
 ## 준비 체크리스트
 
-- [ ] `demo/part1/` 자료 6종 생성 (orders_api.py, error.log, app_full.log, architecture.png, pets_api.md, team_glossary.md)
+- [ ] `demo/part1/` 자료 5종 생성 (orders_api.py, error.log, app_full.log, architecture.png, team_glossary.md)
 - [ ] 발표용 claude.ai 계정/프로젝트 세팅 ("팀 API 설계 가이드" 프로젝트: 지침 + 용어집)
 - [ ] 라이브 시연은 1(질문 비교)·5(Projects) 2개 — 사전 실행 + 백업 캡처 확보
-- [ ] 캡처/녹화 대체분 제작: 시연 2·3 캡처, 시연 4 녹화 30초(또는 캡처 2장)
+- [ ] 캡처 대체분 제작: 시연 2·3 캡처
 - [ ] 리허설 2회 (시연 포함 Part 1 통주행, 40분 준수 확인)

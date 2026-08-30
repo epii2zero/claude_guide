@@ -5,7 +5,8 @@ paginate: true
 ---
 
 <!--
-Part 1 slides — ENGLISH (final-deck language), 12 slides / 40 min.
+Part 1 slides — ENGLISH (final-deck language), 10 slides / 40 min
+(original numbering #4~15; #9 Artifacts and #12 Computer use removed).
 Copy follows the lab template's English style. Korean draft (part1-draft.md)
 remains the planning/reference version; timing and demo pointers are identical.
 Speaker notes stay in Korean for the presenter.
@@ -18,10 +19,10 @@ Speaker notes stay in Korean for the presenter.
 ```
 2023          2024                    2025~                     2026
  Chat   →   Context / multimodal →  Birth of agents        →  Agents everywhere
-            Tools / artifacts /     (Claude Code)             (Skills, SDK, Cowork,
+            Tools / knowledge /     (Claude Code)             (Skills, SDK, Cowork,
             standards                                          Claude 5 generation)
-            (Tool use, Artifacts,
-             Projects, MCP)
+            (Tool use, Projects,
+             MCP)
 ```
 
 [도식 자리: timeline graphic — year axis + feature icons + direction arrow]
@@ -79,7 +80,7 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 **Formula: context + materials + constraints + output format** — the same briefing you would give a human junior
 
 <!--
-#6 | 6분 (시연 3분 포함)
+#6 | 7분 (시연 3분 포함)
 - [시연 자리] 두 질문을 실제로 던져 응답 차이 (part1-demos.md 시연 1).
 - 시연 후: "The difference is not the model — it is the quality of the briefing."
 - 역량 ① Asking well. 시스템 프롬프트(2023.11, Claude 2.1) 소개 —
@@ -129,23 +130,6 @@ Request → model selects a tool → executes → observes result → decides ne
 
 ---
 
-# June 2024: The Junior Reports with Deliverables — Artifacts
-
-**Receive work products, not conversation**
-
-- Code, documents, **runnable HTML prototypes** in a separate pane — iterate and share
-- "Explain it" ✗ → "Build it" ✓ (Skill ⑤)
-
-[캡처 자리: API spec → working mockup page, 1 screenshot]
-
-<!--
-#9 | 2분 | 간단히 언급
-- 사전 녹화 30초 또는 캡처 2장 (시연 4 축소판).
-- "수동 전달(manual relay)의 벽(#5)이 절반 열린 지점" 한 줄로 연결.
--->
-
----
-
 # June 2024: Projects — Giving the Junior Domain Knowledge
 
 **The Introduction asked what we are still better at — domain knowledge and know-how. This is the first feature for handing it over.**
@@ -160,7 +144,7 @@ Request → model selects a tool → executes → observes result → decides ne
 Projects lays the team's context underneath them
 
 <!--
-#10 | 5분 | Part 1의 두 번째 하이라이트 시작
+#10 | 6분 | Part 1의 두 번째 하이라이트 시작
 - "잠깐 쓰고 지나간 기능이 아니다" — 10분을 쓰는 이유 명시.
 - 부 축 상기: 시스템 프롬프트(개발자 API 기능)가 일반 사용자 기능이 된 두 번째 정거장.
 - Introduction ② 매핑 회수: custom instructions = **instructions**,
@@ -184,27 +168,10 @@ Projects lays the team's context underneath them
 **Tips**: keep instructions short and imperative / curate documents / one project per job
 
 <!--
-#11 | 5분 (시연 3분 포함)
+#11 | 6분 (시연 3분 포함)
 - [시연 자리] 시연 5 확대판: 지침 안/밖 비교 + 용어집 질의 (part1-demos.md).
 - 시연 후: "같은 질문, 다른 답. 차이는 담아둔 지침과 문서뿐."
 - 역량 ⑥ 지식의 문서화. Part 2 복선: "이 지침이 레포로 들어간 것이 CLAUDE.md."
--->
-
----
-
-# Oct 2024: Delegate and Watch — Computer Use
-
-**From step-by-step instruction to delegate-and-watch — the first experiment in handing the junior a whole task**
-
-- The model views the screen, decides, and moves the cursor like a person (beta)
-- Not a mature product — a preview of the direction
-
-**Skill ⑦ — judging what to delegate and what to keep**
-
-<!--
-#12 | 2분
-- 데모 영상 캡처 1장. 짧게 치고 넘어가는 장.
-- 도구를 '골라 쓰는' 것을 넘어 '연속으로, 스스로' 쓰는 모델 — #14 두 번째 복선.
 -->
 
 ---
@@ -241,17 +208,16 @@ Projects lays the team's context underneath them
 
 ```
 Long context ─┐
-Vision        ─┤
-Tool use      ─┼─→  A model that plans, uses tools,     =  an agent
-Artifacts     ─┤    checks results, and loops on its own    (the frame around
-Knowledge     ─┤    (extended thinking, Feb 2025)            this loop is the
-MCP           ─┘                                             harness)
+Vision        ─┤    A model that plans, uses tools,
+Tool use      ─┼─→  checks results, and loops on its own  =  an agent
+Knowledge     ─┤    (extended thinking, Feb 2025)             (the frame around
+MCP           ─┘                                              this loop is the harness)
 ```
 
 **Feb 2025 — the assembled result arrives: Claude Code**
 
 <!--
-#14 | 4분 | Part 1의 클라이맥스
+#14 | 5분 | Part 1의 클라이맥스
 - [도식 자리] 조립 도식 — #8 루프 도식의 확장형. Part 2 #16에서 재등장.
 - 중심 문장: "새 발명품이 아니라 방금 본 기능들의 조립입니다." 호흡 길게.
 - Introduction ② 매핑 완성: 루프를 감싸는 틀 = **harness** — 이로써
