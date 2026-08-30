@@ -174,31 +174,40 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 12px; }
 
 # 2024.06: Projects — 후배에게 도메인 지식을 주는 법
 
-**지침·지식·기억을 한 번 담아두면, 그 안의 모든 대화가 공유하는 업무 공간**
+<style scoped>
+p:has(img) { text-align: center; margin: 0; }
+em { display: block; text-align: center; font-size: 17px; margin: 2px 0 8px; }
+table { font-size: 20px; }
+</style>
 
-구성은 네 가지:
+![h:225](assets/part1/project-screen.png)
+
+*< 실제 프로젝트 화면 — Instructions · Memory · Context >*
+
+**지침·지식·기억을 한 번 담아두면, 그 안의 모든 대화가 공유하는 업무 공간** — 작업의 맥락을 주제별로 분리해 관리
 
 | 요소 | 역할 |
 |------|------|
-| **커스텀 지침** | 프로젝트의 모든 대화에 적용되는 규칙 (약 8천 자 — "우리 팀 컨벤션을 반영해라") |
-| **지식 베이스** | 업로드한 문서·코드를 모든 대화가 참조 (설계 문서, 가이드, 용어집) |
-| **대화 모음** | 같은 업무의 대화가 한곳에 — 흩어지지 않는 히스토리 |
-| **프로젝트 메모리** | 프로젝트별로 분리된 기억 — 대화가 쌓일수록 맥락을 자동 요약·유지 |
-
-**왜 지금도 중요한가**: 에이전트 시대에도 설계 논의·문서 작성·리뷰 상담은
-여전히 채팅에서 — Projects는 그 채팅에 **팀의 맥락**을 깔아주는 기반
+| **Instructions** | 프로젝트의 모든 대화에 적용되는 규칙 |
+| **Context** | 프로젝트의 공용 참조 지식 (설계 문서, 가이드, 용어집 등) |
+| **Conversations** | 프로젝트 내 채팅은 서로 참조 가능 — 흩어지지 않는 히스토리 |
+| **Project memory** | 자동으로 관리되는 프로젝트 내부 메모리 |
 
 <!--
-#10a | 3분 | Part 1의 두 번째 하이라이트 시작 (Projects 3장: 개념 → 동작 → 실전)
+#10a | 3분 | 사용자 원안 기반 (실제 프로젝트 화면 캡처) | Projects 3장의 시작
 - 도입 멘트(인트로 회수): "Introduction에서 '내가 아직 나은 점 = 도메인 지식·
   노하우'라고 했죠. 그걸 후배에게 넘겨주는 첫 번째 기능입니다."
-- "잠깐 쓰고 지나간 기능이 아니라, 채팅 시대부터 지금까지 계속 중요한 기능"
-  이라는 프레임 — Projects에 12분을 쓰는 이유를 청중에게 설명.
-- 부 축 상기: #6b 시스템 프롬프트·개인 지침에 이어 "지시 재사용"의 다음 정거장.
-- Introduction ② 매핑 회수: 커스텀 지침 = **instructions**, 지식 베이스 +
-  프로젝트 메모리 = **memory**. "후배에게 도메인 지식을 주는 법의 1세대입니다."
-- 네 요소를 실제 화면 캡처와 함께. ⚠️ 수치(지침 약 8천 자)는 발표 전
-  헬프센터에서 재확인 (support.claude.com "What are projects?").
+- 요소 명칭은 실제 UI 라벨을 따름: Instructions / Context(구 지식 베이스,
+  Knowledge) / Project memory — 캡처 화면의 패널명과 1:1 대응.
+- 캡처 포인트 짚기: 오른쪽 패널에 Instructions·Memory·Context가 다 보임.
+  Context의 "6% of project capacity used · Search mode" 표시 → 다음 장(#10b)
+  동작 원리 이야기의 자연스러운 예고.
+- 왜 지금도 중요한가(말로): 에이전트 시대에도 설계 논의·문서 작성·리뷰 상담은
+  여전히 채팅 — Projects가 그 채팅에 팀의 맥락을 깔아준다.
+- 부 축 상기: #6b instructions의 다음 정거장 (계정 전역 → 프로젝트 단위).
+- Introduction ② 매핑 회수: Instructions = **instructions**, Context +
+  Project memory = **memory**.
+- ⚠️ 지침 분량(약 8천 자) 등 수치는 발표 전 헬프센터 재확인.
 -->
 
 ---

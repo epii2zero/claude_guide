@@ -21,3 +21,10 @@
 (260831_claude_chanwoo_import.pptx)에서 보존.
 - profile-instructions.png: claude.ai 설정 → Profile의 "Instructions for Claude" 화면
 - custom-instructions-gpt.jpg: ChatGPT 맞춤 설정(맞춤형 지침) 대화상자
+
+## part1/project-screen.png
+
+#10a(Projects 개념·구성)의 실제 프로젝트 화면 캡처 — 발표자 원안 PPTX
+(260831_claude_chanwoo_import.pptx 전체본)에서 보존. 오른쪽 패널에
+Instructions·Memory·Context가 모두 보이며, Context의 "6% of project
+capacity used · Search mode" 표시는 #10b 동작 원리 설명과 연결된다.
