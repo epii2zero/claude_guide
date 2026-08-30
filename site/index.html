@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 가이드 발표 자료</title>
+<style>
+  :root {
+    --navy: #003876; --navy-2: #053D7A; --ink: #1a2230; --muted: #5a6472;
+    --line: #dde3ec; --bg: #f6f8fb; --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", "Apple SD Gothic Neo", system-ui, Arial, sans-serif;
+    margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6;
+  }
+  header {
+    background: var(--navy); color: #fff; padding: 3rem 1.5rem 2.5rem;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+  header .wrap { padding: 0; max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+  header h1 { margin: 0 0 .4rem; font-size: 1.9rem; }
+  header p { margin: 0; opacity: .85; }
+  main { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  h2 { color: var(--navy); font-size: 1.25rem; margin: 2.2rem 0 .9rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 1.1rem 1.2rem; text-decoration: none; color: inherit; display: block;
+    box-shadow: 0 1px 3px rgba(16,32,64,.06); transition: box-shadow .15s, transform .15s;
+  }
+  .card:hover { box-shadow: 0 4px 14px rgba(16,32,64,.12); transform: translateY(-2px); }
+  .card .kicker { font-size: .75rem; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+  .card .title { color: var(--navy); font-weight: 700; margin: .15rem 0 .3rem; }
+  .card .desc { font-size: .85rem; color: var(--muted); margin: 0; }
+  .badge {
+    display: inline-block; font-size: .7rem; font-weight: 700; border-radius: 99px;
+    padding: .1rem .55rem; margin-left: .4rem; vertical-align: middle;
+  }
+  .badge.final { background: #e8f0fb; color: var(--navy); }
+  .badge.ref { background: #eef1f5; color: var(--muted); }
+  .note { font-size: .85rem; color: var(--muted); margin-top: .6rem; }
+  footer { border-top: 1px solid var(--line); padding: 1.4rem 1.5rem 2.5rem; }
+  footer .wrap { color: var(--muted); font-size: .85rem; }
+  footer a { color: var(--navy); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Claude 가이드 발표 자료</h1>
+    <p>How to Get the Most out of Claude — From Chat to Agents · 2시간 세션 준비 자료</p>
+  </div>
+</header>
+<main>
+  <h2>슬라이드 초안 <span class="badge final">EN = 최종 언어</span></h2>
+  <div class="grid">
+    <a class="card" href="part0-en.html">
+      <div class="kicker">Intro · English</div>
+      <div class="title">Part 0 — Intro (EN)</div>
+      <p class="desc">훅: AI의 수학 난제 해결 → 오늘의 질문으로 착지 (5장, 7분)</p>
+    </a>
+    <a class="card" href="part1-en.html">
+      <div class="kicker">Part 1 · English</div>
+      <div class="title">Part 1 — From Chat to Agents (EN)</div>
+      <p class="desc">발전 과정 + 시대별 역량, Projects 집중 (12장, 40분)</p>
+    </a>
+    <a class="card" href="part0.html">
+      <div class="kicker">Intro · 한국어 <span class="badge ref">검토용</span></div>
+      <div class="title">Part 0 — 인트로 (KO)</div>
+      <p class="desc">기획·문안 검토용 한국어 초안</p>
+    </a>
+    <a class="card" href="part1.html">
+      <div class="kicker">Part 1 · 한국어 <span class="badge ref">검토용</span></div>
+      <div class="title">Part 1 — 채팅에서 에이전트까지 (KO)</div>
+      <p class="desc">기획·문안 검토용 한국어 초안</p>
+    </a>
+  </div>
+  <p class="note">Marp 초안 렌더입니다. 최종본은 연구실 템플릿 기반 PPTX로 제작되며, 완성되면 이 페이지에 PDF 열람·PPTX 다운로드가 추가됩니다.</p>
+
+  <h2>발표 준비 문서</h2>
+  <div class="grid">
+    <a class="card" href="https://github.com/epii2zero/claude_guide/blob/main/PLAN.md">
+      <div class="kicker">Plan</div>
+      <div class="title">발표 계획서 (PLAN.md)</div>
+      <p class="desc">목표·구성·시간 배분·체크리스트</p>
+    </a>
+    <a class="card" href="https://github.com/epii2zero/claude_guide/blob/main/slides/outline.md">
+      <div class="kicker">Outline</div>
+      <div class="title">슬라이드 구성안</div>
+      <p class="desc">장별 핵심 메시지·내용 요소·발표 포인트</p>
+    </a>
+    <a class="card" href="https://github.com/epii2zero/claude_guide/blob/main/docs/00-evolution.md">
+      <div class="kicker">Reference</div>
+      <div class="title">발전 과정 정리</div>
+      <p class="desc">타임라인·시대별 역량·지시의 계보 (출처 포함)</p>
+    </a>
+    <a class="card" href="https://github.com/epii2zero/claude_guide/blob/main/docs/01-intro-facts.md">
+      <div class="kicker">Reference</div>
+      <div class="title">인트로 근거 자료</div>
+      <p class="desc">수학 난제 소식 사실관계·안전/금지 표현</p>
+    </a>
+    <a class="card" href="https://github.com/epii2zero/claude_guide/blob/main/slides/part1-demos.md">
+      <div class="kicker">Demo</div>
+      <div class="title">Part 1 시연 스크립트</div>
+      <p class="desc">프롬프트 원문·준비물·실패 대비책</p>
+    </a>
+    <a class="card" href="https://github.com/epii2zero/claude_guide/blob/main/slides/template/STYLE.md">
+      <div class="kicker">Template</div>
+      <div class="title">연구실 템플릿 스타일 가이드</div>
+      <p class="desc">색·폰트·텍스트 위계·영어 문체·구조 관행</p>
+    </a>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    저장소: <a href="https://github.com/epii2zero/claude_guide">github.com/epii2zero/claude_guide</a>
+    — main 브랜치에 머지될 때마다 이 페이지가 자동 갱신됩니다.
+  </div>
+</footer>
+</body>
+</html>

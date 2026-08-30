@@ -38,27 +38,10 @@ jobs:
       #   soffice --headless --convert-to pdf --outdir dist slides/final/claude-guide.pptx
       #   cp slides/final/claude-guide.pptx dist/
 
-      - name: Build index page
-        run: |
-          {
-            echo '<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">'
-            echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
-            echo '<title>Claude 가이드 발표 자료</title>'
-            echo '<style>body{font-family:system-ui,sans-serif;max-width:640px;margin:3rem auto;padding:0 1rem;color:#1a1a1a}h1{color:#003876}li{margin:.5rem 0}a{color:#003876}</style>'
-            echo '</head><body><h1>Claude 가이드 발표 자료</h1>'
-            echo '<p>Marp 초안 렌더입니다. 문안 검토용이며, 최종본은 연구실 템플릿 기반 PPTX로 제작됩니다.</p><ul>'
-            for f in dist/*.html; do
-              name=$(basename "$f")
-              [ "$name" = "index.html" ] && continue
-              echo "<li><a href=\"${name}\">${name%.html}</a></li>"
-            done
-            for f in dist/*.pdf dist/*.pptx; do
-              [ -e "$f" ] || continue
-              name=$(basename "$f")
-              echo "<li><a href=\"${name}\">${name}</a></li>"
-            done
-            echo '</ul></body></html>'
-          } > dist/index.html
+      - name: Copy index page
+        run: cp site/index.html dist/index.html
+        # site/index.html은 큐레이션된 랜딩 페이지 — 새 파트 초안이 추가되면
+        # 이 파일의 카드 목록도 함께 갱신할 것
 
       - uses: actions/upload-pages-artifact@v3
         with:
