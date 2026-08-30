@@ -160,27 +160,40 @@ Request → model selects a tool → executes → observes result → decides ne
 
 # June 2024: Projects — Giving the Junior Domain Knowledge
 
-**A workspace where instructions, knowledge, and memory are stored once and shared by every conversation**
+<style scoped>
+h1 { font-size: 37px; }
+p:has(img) { text-align: center; margin: 0; }
+em { display: block; text-align: center; font-size: 17px; margin: 2px 0 8px; }
+table { font-size: 20px; }
+</style>
+
+![h:225](assets/part1/project-screen.png)
+
+*< A real project screen — Instructions · Memory · Context >*
+
+**A workspace where instructions, knowledge, and memory are stored once and shared by every conversation** — work context separated and managed by topic
 
 | Component | Role |
 |-----------|------|
-| **Custom instructions** | Rules applied to every conversation in the project (~8,000 chars) |
-| **Knowledge** | Uploaded documents and code every conversation can reference |
-| **Conversations** | One home for all chats on the same work |
-| **Project memory** | Memory scoped per project — auto-summarized context as chats accumulate |
-
-**Why it still matters**: design discussions, writing, and reviews still happen in chat —
-Projects lays the team's context underneath them
+| **Instructions** | Rules applied to every conversation in the project |
+| **Context** | Shared reference knowledge for the project (design docs, guides, glossaries) |
+| **Conversations** | Chats in the project can reference one another — history in one place |
+| **Project memory** | Project-scoped memory, managed automatically |
 
 <!--
-#10a | 3분 | Part 1의 두 번째 하이라이트 시작 (Projects 3장: 개념 → 동작 → 실전)
+#10a | 3분 | 사용자 원안 기반 (실제 프로젝트 화면 캡처) | Projects 3장의 시작
 - 도입 멘트(인트로 회수): "The Introduction asked what we are still better at —
   domain knowledge and know-how. This is the first feature for handing it over."
-- Projects에 12분을 쓰는 이유 명시.
-- 부 축 상기: #6b의 다음 정거장.
-- Introduction ② 매핑 회수: custom instructions = **instructions**,
-  knowledge + project memory = **memory**.
-- ⚠️ 수치는 발표 전 헬프센터 재확인.
+- 요소 명칭은 실제 UI 라벨을 따름: Instructions / Context(구 Knowledge) /
+  Project memory — 캡처 화면의 패널명과 1:1 대응.
+- 캡처 포인트: Context 패널의 "6% of project capacity used · Search mode"
+  → 다음 장(#10b) 동작 원리의 예고.
+- 왜 지금도 중요한가(말로): design discussions, writing, reviews still happen
+  in chat — Projects lays the team's context underneath them.
+- 부 축 상기: #6b의 다음 정거장 (계정 전역 → 프로젝트 단위).
+- Introduction ② 매핑 회수: Instructions = **instructions**, Context +
+  Project memory = **memory**.
+- ⚠️ 수치(지침 약 8천 자)는 발표 전 헬프센터 재확인.
 -->
 
 ---
