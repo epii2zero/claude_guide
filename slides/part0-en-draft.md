@@ -6,8 +6,9 @@ paginate: true
 
 <!--
 Part 0 intro slides — ENGLISH (final-deck language).
-Copy follows the lab template's English style: concise noun-phrase titles,
-declarative bullets, angle-bracket captions, citations in small type.
+Based on the presenter's own refined Introduction (IQ 150+ junior-colleague
+frame), carried over as faithfully as possible; screenshots preserved in
+slides/assets/intro/. Copy follows the lab template's English style.
 Korean draft (part0-draft.md) remains the planning/reference version.
 Speaker notes stay in Korean for the presenter.
 -->
@@ -31,64 +32,61 @@ DSP&AI Lab., Yonsei University
 
 ---
 
-# AI Is Settling Open Problems in Math — July 2026
+# Introduction
 
-<style scoped>
-img { display: block; margin: 4px auto; }
-p:last-of-type { text-align: center; font-size: 0.85em; color: #5A6472; }
-</style>
+![bg vertical right:38% fit](assets/intro/news-imo-gemini.png)
+![bg fit](assets/intro/news-csat-gemini.png)
+![bg fit](assets/intro/news-erdos-openai.png)
+![bg fit](assets/intro/paper-riemann-claude.png)
 
-![w:700](assets/news-jacobian-en.svg)
+**AI may have already surpassed us in intelligence**
 
-![w:700](assets/news-gpt56-en.svg)
+- IMO gold medal – Jul 2025
+- Perfect score on the Suneung (Korean CSAT) – Feb 2026
+- First original mathematical proof – May 2026
+- Progress on the Riemann hypothesis – Aug 2026
+  <span class="cite">anthropic.com/research/riemann-zeta</span>
 
-Also: IMO gold-medal standard (2025) · Open Erdős problems solved (Jan 2026, Tao-verified)
+**How I think about AI when I use it**
+
+- Treat AI as a **junior colleague with an IQ of 150+**
+- What am I still better at than this brilliant junior?
+- How, and how far, should I delegate work to them?
+
+*< News on AI's achievements · Claude's Riemann paper >*
 
 <!--
-#0.2 | 2분 | 훅
-- 정확성 규칙은 docs/01-intro-facts.md와 동일:
-  · Jacobian: mathematician + Fable 5, "disproved" (반증), 2D case open.
-  · GPT-5.6: "announced a proof … under review" — 해결 확정으로 말하지 않기.
-- 마무리 멘트(영어 발표 시): "In domains like this, intelligence already
-  rivals the best of us."
+#0.2 | 3분 | Introduction ① (사용자 구성 기반, 영어 문안)
+- "may have already surpassed us" — 단정("has surpassed")이 아닌 신중한 표현으로
+  원문의 "능가했을지 모른다"를 살림.
+- "junior colleague with an IQ of 150+" — 후배는 junior colleague가 자연스럽고,
+  IQ 150+를 형용사구로. 이후 슬라이드에서 "the junior"로 짧게 받는다.
+- 이정표·캡처 대응과 발표 전 확인 사항은 KO 버전(part0-draft.md) 노트 참고.
 -->
 
 ---
 
-# Then Why Does It Struggle in My Project?
+# Introduction
 
-**The same AI that settles an 87-year-old conjecture ...**
+**What I am still better at than the junior**
 
-- Confidently imports a library we do not use
-- Ignores our team conventions
-- Delivers plausible wrong answers with full confidence
+- Domain knowledge, know-how
 
-**The intelligence solving open problems and the intelligence lost in my repo — the same model**
+**How, and how far, to put the junior to work**
 
-<!--
-#0.3 | 1.5분 | 긴장
-- 청중 전원이 겪어본 경험. 사내 실패담이 있으면 한 줄 교체.
-- 질문을 던져놓고 다음 장에서 답한다.
--->
+- Training on our tools, allocating servers, limiting permissions, verifying the work
 
----
+**Everyone shares the same questions**
 
-# The Gap Is Not Intelligence — It Is Usage
-
-Same model, different results. What makes the difference:
-
-- **What we provide** — context (the conjecture came with a complete problem statement)
-- **How we delegate** — clear goals in verifiable form
-- **How we verify** — validation (the counterexample was machine-checked in a day)
-
-# Today's question: **How do we get the most out of Claude?**
+- How to give AI domain knowledge and know-how → **instructions, memory, skills**
+- Allocating servers, verifying the work → **tools, MCP, harness**
 
 <!--
-#0.4 | 1.5분 | 전환 — 인트로의 핵심 장
-- 훅의 사례를 재사용: 난제 해결의 이면에는 완결된 문제 정의(컨텍스트)와
-  즉시 검증(Lean)이 있었다. 내 업무의 아쉬운 결과 이면에는 그 부재가 있다.
-- 세 요소(context/delegation/verification)가 Part 1 역량 축과 Part 3의 예고편.
-  마무리에서 이 장을 다시 비춰 수미상관.
+#0.3 | 2분 | Introduction ② (사용자 구성 기반, 영어 문안)
+- "프로그램 사용법 교육"은 "training on our tools"로 — 신입 온보딩 뉘앙스 유지.
+- 기능명(instructions/memory/skills/tools/MCP/harness)은 소문자 일반명사로 두어
+  "사람 후배에게 하던 일의 AI 버전"이라는 대응이 자연스럽게 읽히게.
+- 전환 멘트: "Today we will walk through these answers one by one."
 -->
 
 ---
