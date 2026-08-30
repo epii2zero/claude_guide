@@ -1,0 +1,168 @@
+# 채팅에서 에이전트까지 — Claude의 발전 과정
+
+> 발표 Part 1의 근거 자료. 각 단계를 **"당시의 한계 → 그것을 푼 기능 → 지금의 사용법"**
+> 구조로 정리한다. 모든 시기·명칭은 Anthropic 공식 발표(anthropic.com/news)와
+> 공식 문서(Claude Code changelog)로 검증했다 (2026-08-30 기준).
+
+## 한눈에 보는 타임라인
+
+| 시기 | 기능/변화 | 풀고자 한 문제 (등장 이유) |
+|------|-----------|---------------------------|
+| 2023.03 | Claude 출시 (API + 파트너용 채팅) | — (출발점: 질문하면 답하는 모델) |
+| 2023.05~11 | 긴 컨텍스트: 100K (2023.05) → Claude 2 + claude.ai 공개 (2023.07) → Claude 2.1 200K (2023.11) | 자료를 잘게 쪼개 붙여넣어야 하는 한계 → 문서·코드를 통째로 |
+| 2024.03 | Claude 3 패밀리 (Haiku/Sonnet/Opus) + 비전 | 텍스트로 옮겨 적어야 했던 스크린샷·다이어그램·에러 화면 |
+| 2024.05 | Tool use 정식 출시 (API) | 모델이 학습 지식에 갇혀 있음 → 외부 세계와 상호작용하는 첫 단추 |
+| 2024.06 | Claude 3.5 Sonnet + **Artifacts** (06.20), **Projects** (06.25) | 결과물이 대화 로그에 묻힘 → "산출물" / 매번 같은 컨텍스트 반복 → 담아두고 재사용 |
+| 2024.10 | Computer use 베타 + 업그레이드된 Claude 3.5 Sonnet (10.22), 분석 도구 (10.24) | 사람이 매 단계 지시해야 함 → 모델이 화면을 보고 스스로 조작하는 에이전트 실험 |
+| 2024.11 | **MCP** (Model Context Protocol) 오픈소스 공개 | 도구 연결이 서비스마다 제각각 → 외부 도구·데이터 연결의 공개 표준 |
+| 2025.02 | Claude 3.7 Sonnet (extended thinking) + **Claude Code 리서치 프리뷰** | 복잡한 다단계 작업 → 더 깊은 추론 + 도구를 쓰며 스스로 루프를 도는 에이전트 |
+| 2025.03 | 웹 검색 (미국부터, 전 세계는 2025.05) | 학습 시점 이후의 정보 접근 |
+| 2025.05 | Claude 4 (Opus 4, Sonnet 4) + **Claude Code 정식 출시** (05.22) | 에이전트를 실무 표준 도구로 |
+| 2025.06~07 | Claude Code 훅(06), 커스텀 서브에이전트(07) | 에이전트의 동작을 팀 규칙에 맞게 제어·분업 |
+| 2025.09 | Claude Sonnet 4.5 + Claude Code 2.0 (체크포인트, VS Code 확장) + **Claude Agent SDK** (09.29) | 에이전트 하네스 자체를 재사용 가능한 빌딩 블록으로 |
+| 2025.10 | **Agent Skills** (10.16), Claude Code on the web (10.20), 메모리 확대 | 전문 절차의 패키징 / 어디서나 에이전트 실행 / 대화 간 기억 |
+| 2025.11 | Claude Opus 4.5 (11.24) — 4.5 패밀리 완성 | — |
+| 2026.01 | Claude Cowork 리서치 프리뷰 | 코딩 밖 사무 업무로 에이전트 확장 |
+| 2026 상반기 | Opus 4.6 (1M 컨텍스트 베타, 02월) → Opus 4.7 (04월) → **Claude 5 세대: Fable 5/Mythos 5 (06.09), Sonnet 5 (06.30)** | 더 긴 호흡의 자율 작업, 프론티어 성능의 보편화 |
+
+## 단계별 상세: 한계 → 기능 → 사용법
+
+### 1. 출발점 — 단순 채팅 (2023.03)
+
+- **무엇**: 첫 Claude 모델 공개. API와 파트너용 채팅 인터페이스로 시작.
+- **가치와 한계**: 질문-답변만으로도 유용했지만, ① 알고 있는 것은 학습 데이터뿐이고
+  ② 결과를 받으려면 사람이 모든 맥락을 복사해 넣고 결과를 복사해 나와야 했다
+  (복붙 워크플로우) ③ 환각 위험.
+- **지금도 유효한 기본기**: 이때 확립된 프롬프트 요령 — 맥락 제공(코드·에러 로그·제약조건),
+  역할·출력 형식 지정, 단계적 요청 — 은 에이전트 시대에도 그대로 통한다.
+- 출처: [Introducing Claude](https://www.anthropic.com/news/introducing-claude)
+
+### 2. 컨텍스트의 확장 — 긴 컨텍스트와 claude.ai (2023)
+
+- **한계**: 초기 컨텍스트 창은 작아서 문서를 잘게 쪼개 넣어야 했다.
+- **기능**: 100K 컨텍스트(2023.05, Claude 1.3) → Claude 2와 함께 누구나 쓰는
+  claude.ai 공개(2023.07) → Claude 2.1에서 200K(2023.11). 이후 세대에서 1M까지 확대.
+- **사용법**: 문서·로그 파일·코드 여러 개를 통째로 첨부하고 질문하기.
+  "요약해줘"를 넘어 "이 로그에서 장애 원인 찾아줘"가 가능해진 지점.
+- 출처: [100K context windows](https://www.anthropic.com/news/100k-context-windows),
+  [Claude 2](https://www.anthropic.com/news/claude-2),
+  [Claude 2.1](https://www.anthropic.com/news/claude-2-1)
+
+### 3. 눈이 생기다 — Claude 3와 비전 (2024.03)
+
+- **한계**: 스크린샷·아키텍처 다이어그램·에러 화면을 텍스트로 옮겨 적어야 했다.
+- **기능**: Claude 3 패밀리(Haiku/Sonnet/Opus)에서 이미지 입력 지원.
+  용도별 모델 라인업(속도 vs 성능)도 이때 정착.
+- **사용법**: 에러 스크린샷 그대로 붙여넣기, 다이어그램 보고 코드 생성,
+  UI 시안 리뷰.
+- 출처: [Claude 3 family](https://www.anthropic.com/news/claude-3-family)
+
+### 4. 손이 생기다 — Tool use (2024.05)
+
+- **한계**: 모델이 학습 지식에 갇혀 있고, 계산·검색·조회는 못 했다.
+- **기능**: Tool use(함수 호출) API 정식 출시. 개발자가 정의한 도구를 모델이
+  스스로 골라 호출 — **에이전트로 가는 첫 단추**. 이후 웹 검색(2025.03),
+  코드 실행 등 서버측 도구로 확장.
+- **사용법**: (일반 사용자 관점) 웹 검색으로 최신 정보 질문, 분석 도구로
+  CSV 업로드 후 계산·차트. (개발자 관점) API에서 자체 도구 연결.
+- 출처: [Tool use GA](https://www.anthropic.com/news/tool-use-ga),
+  [Web search](https://www.anthropic.com/news/web-search)
+
+### 5. 산출물이 생기다 — Artifacts (2024.06)
+
+- **한계**: 코드·문서를 만들어도 대화 로그 속에 묻혔다.
+- **기능**: Claude 3.5 Sonnet과 함께 Artifacts 공개(06.20). 코드, 문서,
+  동작하는 HTML 프로토타입이 대화 옆 별도 창에 "작업물"로 만들어진다.
+- **사용법**: "이 API 명세로 목업 페이지 만들어줘" → 바로 실행되는 프로토타입,
+  반복 수정, 공유.
+- 출처: [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet)
+
+### 6. 기억이 생기다 — Projects (2024.06)
+
+- **한계**: 새 대화마다 팀 컨벤션, 프로젝트 배경, 자료를 다시 붙여넣어야 했다.
+- **기능**: Projects(06.25) — 지식 문서와 커스텀 지침을 프로젝트에 담아두면
+  그 안의 모든 대화가 이를 공유. (이후 2025년에는 대화 간 자동 기억(Memory)으로 확장.)
+- **사용법**: "우리 팀 API 설계 가이드" 프로젝트를 만들어 규칙 문서를 넣어두고,
+  리뷰·질문을 그 안에서 진행.
+- 출처: [Projects](https://www.anthropic.com/news/projects),
+  [Memory](https://www.anthropic.com/news/memory)
+
+### 7. 스스로 움직이는 실험 — Computer use (2024.10)
+
+- **한계**: 도구가 있어도 "무엇을 할지"는 여전히 사람이 매 단계 지시해야 했다.
+- **기능**: Computer use 베타(10.22) — 모델이 화면을 보고 커서를 움직여
+  사람처럼 컴퓨터를 조작. 같은 주간에 분석 도구(JS 실행, 10.24)도 공개.
+- **의미**: 성숙한 제품이라기보다 "모델이 스스로 루프를 도는" 에이전트 방향을
+  보여준 실험. 발표에서는 '에이전트 예고편'으로 소개.
+- 출처: [3.5 models and computer use](https://www.anthropic.com/news/3-5-models-and-computer-use),
+  [Analysis tool](https://www.anthropic.com/news/analysis-tool)
+
+### 8. 연결의 표준 — MCP (2024.11)
+
+- **한계**: 모델에 사내 DB, 사내 위키, 각종 SaaS를 연결하려면 서비스마다
+  제각각의 통합을 만들어야 했다.
+- **기능**: Model Context Protocol 오픈소스 공개 — 도구·데이터 연결의 공개 표준.
+  업계 전반이 채택했고 이후 재단에 기증(2025.12).
+- **사용법**: MCP 서버 하나만 만들면 Claude.ai, Claude Code 등 어떤 MCP
+  클라이언트에서도 사내 도구를 쓸 수 있다. (발표에서는 개념 + 사내 활용 그림 정도)
+- 출처: [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol)
+
+### 9. 수렴 — 추론하는 에이전트, Claude Code의 등장 (2025.02~05)
+
+- **한계**: 복잡한 다단계 작업은 ① 더 깊은 추론과 ② 도구를 쓰며 스스로
+  루프를 도는 실행력이 모두 필요했다.
+- **기능**:
+  - Claude 3.7 Sonnet(2025.02.24) — 첫 하이브리드 추론 모델(extended thinking)
+  - **Claude Code 리서치 프리뷰(같은 날)** — 터미널에서 코드베이스를 읽고,
+    파일을 수정하고, 테스트를 돌리고, 커밋하는 에이전틱 코딩 도구
+  - Claude 4(Opus 4/Sonnet 4)와 함께 **정식 출시**(2025.05.22)
+- **핵심 메시지**: Claude Code는 새로 발명된 것이 아니라, 지금까지의 조각들이
+  개발 워크플로우에 맞게 조립된 것이다 —
+  **긴 컨텍스트**(코드베이스) + **도구 사용**(파일·셸·git) + **MCP**(사내 연결) +
+  **추론**(계획 수립) + **Projects의 사상**(CLAUDE.md).
+- 출처: [Claude 3.7 Sonnet](https://www.anthropic.com/news/claude-3-7-sonnet),
+  [Claude 4](https://www.anthropic.com/news/claude-4)
+
+### 10. 에이전트의 성숙 — 제어, 분업, 패키징 (2025.06~)
+
+- **한계**: 에이전트를 팀에서 쓰려면 동작을 규칙에 맞게 제어하고, 큰 작업을
+  나눠 맡기고, 반복 절차를 재사용할 방법이 필요했다.
+- **기능** (Claude Code changelog 및 공식 발표 기준):
+  - 훅(2025.06): 도구 실행 전후에 팀의 스크립트를 강제 실행
+  - 커스텀 서브에이전트(2025.07): 작업을 전문화된 하위 에이전트에 위임
+  - Claude Code 2.0 + **Claude Agent SDK**(2025.09.29): 체크포인트, VS Code 확장,
+    그리고 Claude Code의 하네스를 라이브러리로 — 우리만의 에이전트 제작 가능
+  - **Agent Skills**(2025.10.16): 전문 절차·지식을 폴더로 패키징해 필요할 때 로드
+    (이후 오픈 표준화)
+  - Claude Code on the web(2025.10.20): 브라우저·모바일에서 클라우드 실행
+- **사용법**: 발표 Part 2의 "팀에서 잘 쓰기" 절이 이 단계에 해당 —
+  CLAUDE.md, permissions, 훅, 스킬, MCP 설정.
+- 출처: [Claude Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5),
+  [Agent Skills](https://www.anthropic.com/news/skills),
+  [Claude Code on the web](https://www.anthropic.com/news/claude-code-on-the-web),
+  [Claude Code changelog](https://code.claude.com/docs/en/changelog)
+
+### 11. 지금 — 코딩 너머로, Claude 5 세대 (2025.11~2026)
+
+- Claude Opus 4.5(2025.11)로 4.5 패밀리 완성, Opus 4.6(2026.02, 1M 컨텍스트 베타),
+  Opus 4.7(2026.04)
+- **Claude Cowork**(2026.01 리서치 프리뷰): 에이전트 방식이 코딩을 넘어
+  일반 사무 업무로 확장
+- **Claude 5 세대**(2026.06): Fable 5/Mythos 5(06.09), Sonnet 5(06.30) —
+  더 긴 호흡의 자율 작업, 프론티어 성능의 보편화
+- **발표 마무리 포인트**: 발전 방향은 일관되게 "모델에게 더 많은 컨텍스트를,
+  더 많은 행동 능력을"이었고, 그 결과 우리는 '질문에 답하는 도구'가 아니라
+  '일을 맡기는 동료'를 갖게 됐다. 개발자가 지금 익혀야 할 것은 이 방향의
+  현재 완성형인 Claude Code다.
+
+## 발표용 요약 (한 장 슬라이드)
+
+```
+2023          2024                    2025                      2026
+ 채팅   →   컨텍스트/멀티모달   →   에이전트의 탄생        →   에이전트의 보편화
+            도구/산출물/표준         (Claude Code)              (Skills, SDK, Cowork,
+            (Tool use, Artifacts,                                Claude 5 세대)
+             Projects, MCP)
+
+ 한 줄: "더 많은 컨텍스트를, 더 많은 행동 능력을" — 종착점은 에이전트
+```
