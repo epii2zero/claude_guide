@@ -5,8 +5,8 @@ paginate: true
 ---
 
 <!--
-Part 1 slides — ENGLISH (final-deck language), 11 slides / 40 min
-(original numbering #4~15; #9 Artifacts and #12 Computer use removed; #6 split into #6a/#6b).
+Part 1 slides — ENGLISH (final-deck language), 12 slides / 40 min
+(original numbering #4~15; #9 Artifacts and #12 Computer use removed; #6 and #10 each split into a/b).
 Copy follows the lab template's English style. Korean draft (part1-draft.md)
 remains the planning/reference version; timing and demo pointers are identical.
 Speaker notes stay in Korean for the presenter.
@@ -161,20 +161,48 @@ Request → model selects a tool → executes → observes result → decides ne
 
 | Component | Role |
 |-----------|------|
-| **Custom instructions** | Rules applied to every conversation in the project |
-| **Knowledge** | Uploaded documents every conversation can reference |
+| **Custom instructions** | Rules applied to every conversation in the project (~8,000 chars) |
+| **Knowledge** | Uploaded documents and code every conversation can reference |
 | **Conversations** | One home for all chats on the same work |
+| **Project memory** | Memory scoped per project — auto-summarized context as chats accumulate |
 
 **Why it still matters**: design discussions, writing, and reviews still happen in chat —
 Projects lays the team's context underneath them
 
 <!--
-#10 | 6분 | Part 1의 두 번째 하이라이트 시작
-- "잠깐 쓰고 지나간 기능이 아니다" — 10분을 쓰는 이유 명시.
-- 부 축 상기: 시스템 프롬프트(개발자 API 기능)가 일반 사용자 기능이 된 두 번째 정거장.
+#10a | 3분 | Part 1의 두 번째 하이라이트 시작 (Projects 3장: 개념 → 동작 → 실전)
+- Projects에 12분을 쓰는 이유 명시.
+- 부 축 상기: #6b의 다음 정거장.
 - Introduction ② 매핑 회수: custom instructions = **instructions**,
-  knowledge + 이후의 Memory = **memory**.
-- 이후 Memory로 확장 한 줄.
+  knowledge + project memory = **memory**.
+- ⚠️ 수치는 발표 전 헬프센터 재확인.
+-->
+
+---
+
+# Projects — How Knowledge Actually Works
+
+**Small enough, read whole; too large, retrieved**
+
+```
+knowledge ≤ context window   →  loaded whole (every chat sees everything)
+knowledge > context window   →  RAG retrieval kicks in (paid plans)
+                                only the parts relevant to the question are loaded
+```
+
+- Developer takeaway: **curation still matters** — noisy documents lower answer quality even in retrieval mode
+
+**Availability** (as of Aug 2026 — re-verify before the talk)
+
+- Free: 5 projects (since Feb 2026) / **Pro·Max·Team·Enterprise**: unlimited + RAG mode
+- **Team sharing**: Team·Enterprise — role-based (private/view/edit), co-managed instructions and knowledge
+
+<!--
+#10b | 3분 | 동작 원리와 제공 범위
+- "Small enough, read whole; too large, retrieved" 한 줄이 핵심.
+  #20의 정적/동적 로딩 이야기의 복선.
+- 실전 경로: start personal, promote the good ones to team projects.
+- ⚠️ 수치·플랜 조건 발표 직전 재확인.
 -->
 
 ---
@@ -190,7 +218,9 @@ Projects lays the team's context underneath them
 **③ Recurring work templates** — postmortems, release notes, weekly reports
 → same format and tone, every time
 
-**Tips**: keep instructions short and imperative / curate documents / one project per job
+**Tips**: keep instructions short and imperative (short rules are followed best)
+/ curate documents — noise lowers quality even in retrieval mode / one project per job
+/ promote a well-built personal project to a team project
 
 <!--
 #11 | 6분 (시연 3분 포함)
