@@ -38,6 +38,20 @@
    외부 자료 인용 시 상단에 10pt 출처 표기
 6. 마지막: Conclusion 섹션
 
+## 영어 문체 (템플릿 관찰 기반)
+
+최종 발표자료는 **영어**로 작성한다. 템플릿에서 관찰되는 문체:
+
+- 제목: 간결한 명사구, 문장식 대문자화 (예: "Unified Speech and Audio Representation Learning")
+- 불릿: 짧은 선언문·동사 시작 구문, 불필요한 관사 절제
+  (예: "Learn speech, sound, and music in a unified representation space")
+- 섹션명: Background / Introduction / Proposed Method / Experiments / Conclusion 계열의 표준 명칭
+- 캡션: `< Framework of WavLM >` 꺾쇠 형식 유지
+- 인용: 슬라이드 상단 10pt, 저자·논문명·학회지·연도 형식
+
+언어 정책: 영어 초안(`slides/*-en-draft.md`)이 최종 문안, 한국어 초안은 기획·검토용.
+스피커 노트는 발표자 편의상 한국어 유지.
+
 ## 이 발표(Claude 가이드)에 적용할 때
 
 - 파트 전환(인트로 → Part 1 → 휴식 → Part 2 → 마무리)에 **Contents 재등장 + 섹션 표지** 관행 사용
