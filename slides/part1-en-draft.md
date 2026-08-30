@@ -88,29 +88,32 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 
 ---
 
-# Chatbot-Era Usage ② — Personas, and the Birth of Instructions
+# Chatbot-Era Usage ② — Instructions
 
-**"You are a backend engineer with ten years of experience" — a role changes the answer**
+<style scoped>
+p:has(img) { text-align: center; margin: 2px 0; }
+p:has(img) img { margin: 0 10px; vertical-align: top; }
+em { display: block; text-align: center; font-size: 17px; margin: 2px 0 12px; }
+</style>
 
-- **Assigning a persona** — the signature chatbot-era technique for setting perspective, tone, and standards
-- The problem: the same role and rules had to be **retyped in every conversation**
-- So they became features — where you store it is how far it applies:
-  - **System prompt** (Nov 2023, API) — fix the role and rules outside the conversation
-  - **Profile instructions** (claude.ai profile, "Instructions for Claude") — applied **account-wide**
-  - **Projects custom instructions** (Jun 2024) — scoped **per project** (details shortly)
+![h:205](assets/part1/profile-instructions.png) ![h:230](assets/part1/custom-instructions-gpt.jpg)
 
-**The instructions lineage born here runs on to CLAUDE.md and skills**
+*< Profile instructions in Claude and custom instructions in ChatGPT >*
 
-<!-- 캡처 추가 대기: assets/part1/profile-instructions.png 저장 후
-![bg right:35% fit](assets/part1/profile-instructions.png) 활성화 + 캡션
-*< Profile instructions in Claude settings >* 추가 -->
+- **The age of prompt engineering** — context and rules delivered along with every request
+  - **"You are a backend engineer with ten years of experience"** — assigning a persona
+- **The shift: what was retyped into every chat is now entered whole in settings, once** — applied to every conversation automatically
+- The instructions lineage born here runs on to Projects instructions → CLAUDE.md → skills
 
 <!--
-#6b | 3분 | 지시의 계보 부 축의 출발 정거장
+#6b | 3분 | 사용자 원안 기반 | 지시의 계보 부 축의 출발 정거장
+- 캡처 2장: 왼쪽 Claude 프로필 개인 지침, 오른쪽 ChatGPT 맞춤 설정 (원안 보존본).
+- 변화의 서사가 핵심: 매번 채팅에 붙여넣던 역할·규칙 → 설정에 한 번 통째로.
+- 담는 곳의 계보(스피커용 연표): system prompt(2023.11, API) →
+  profile instructions(계정 전역) → Projects custom instructions(2024.06,
+  프로젝트 단위) → CLAUDE.md → skills. 담는 곳이 곧 적용 범위.
 - 후배 은유: 페르소나 = 후배에게 역할과 기준을 정해주는 것.
 - Introduction ② 매핑 회수: **instructions**의 출발점.
-- 복선: Projects(#10) → CLAUDE.md → skills로 이어진다고 예고.
-- 페르소나 응답 차이 캡처 1장으로 보강 가능 (준비물 후보).
 -->
 
 ---
