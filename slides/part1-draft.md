@@ -44,20 +44,22 @@ Part 1 슬라이드 초안 (#4~15, 40분)
 
 # Chatbot (2023)
 
-![bg vertical right:40% fit](assets/part1/chat-claude.png)
-![bg fit](assets/part1/chat-gpt.png)
+<style scoped>
+p:has(img) { text-align: center; margin: 2px 0; }
+p:has(img) img { margin: 0 8px; vertical-align: top; }
+em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
+</style>
 
-**질문에 답하는 챗봇**
-
-**한계**
-
-- **갇힌 지식** — 학습된 지식뿐, 최신 정보를 모름
-- **수동 전달** — 모든 맥락을 매번 전달하고, 결과도 직접 받아 옮겨야 함
-- **환각** — 그럴듯한 오답을 자신 있게 말함
-
-> 이 한계들이 이후 등장할 기능들의 동기가 된다
+![h:195](assets/part1/chat-claude.png) ![h:195](assets/part1/chat-gpt.png)
 
 *< 클로드와 GPT의 채팅 화면 >*
+
+- 질문에 답하는 챗봇
+- 한계
+  - **갇힌 지식** - 학습된 지식뿐, 최신 정보를 모름
+  - **수동 전달** - 모든 맥락을 매번 전달하고, 결과도 직접 받아 옮겨야 함
+  - **환각** - 그럴듯한 오답을 자신 있게 말함
+  - 이 한계들이 이후 등장할 기능들의 동기가 된다
 
 <!--
 #5 | 3분 | 사용자 직접 구성 버전 기반
