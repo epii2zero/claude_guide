@@ -179,10 +179,11 @@ claude_guide/
 
 1. ~~형태(분량) 확정~~ → 2안으로 확정 완료
 2. ~~발전 과정 타임라인 사실 확인 후 `docs/00-evolution.md` 작성~~ → 완료 (시대별 필요 역량 포함)
-3. 슬라이드 작성 — 도구는 **Marp** 확정. 진행 순서:
+3. 슬라이드 작성 — 진행 순서:
    1. `slides/outline.md`에서 장별 구성 확정
-   2. 파트별 Marp 초안 작성 (문안 + 스피커 노트) — Part 1: `slides/part1-draft.md` 작성됨,
-      시연 스크립트: `slides/part1-demos.md`
-   3. 문안 확정 후 테마·도식 입혀 최종 렌더 (PDF/PPTX)
+   2. 파트별 Marp 초안 작성 (문안 + 스피커 노트) — Part 0: `slides/part0-draft.md`,
+      Part 1: `slides/part1-draft.md`, 시연 스크립트: `slides/part1-demos.md`
+   3. 문안 확정 후 **연구실 랩미팅 템플릿 기반 PPTX로 최종 제작**
+      (`slides/template/labmeeting-template.pptx`, 스타일 가이드 `slides/template/STYLE.md` 준수)
 4. (보류) 데모 시나리오 스크립트 + 데모용 샘플 레포 구성 — 슬라이드 이후에 고민
 5. 리허설 후 내용 다듬기

@@ -200,8 +200,9 @@
 
 ## 확정 전 결정 필요 사항
 
-- [x] 슬라이드 제작 도구/형식 → **Marp** 확정 (마크다운 기반, 레포에서 버전 관리,
-      PDF/PPTX 내보내기 가능). Part 1 초안: `slides/part1-draft.md`
+- [x] 슬라이드 제작 도구/형식 → **Marp로 초안·문안 확정 후, 연구실 랩미팅 템플릿
+      기반 PPTX로 최종 제작** (`slides/template/labmeeting-template.pptx`,
+      스타일 가이드: `slides/template/STYLE.md`). Part 1 초안: `slides/part1-draft.md`
 - [ ] #6, #8, #10, #19의 `[예시]`를 사내 유사 사례로 만들지 일반 예시로 할지
 - [ ] #15, #22의 사내 정책·플랜 정보 확인
 - [ ] #18 데모 시나리오 확정 (현재 보류) — 확정 후 해당 장 갱신
