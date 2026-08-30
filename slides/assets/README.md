@@ -15,9 +15,9 @@
 
 내부 발표 인용 용도이며 출처를 카드/캡션에 명시할 것.
 
-## part1/profile-instructions.png (파일 대기 중)
+## part1/profile-instructions.png · part1/custom-instructions-gpt.jpg
 
-#6b(페르소나와 instructions)의 예시 캡처 — claude.ai 설정 → Profile의
-"Instructions for Claude" 화면. 발표자가 채팅에 인라인으로 공유한 캡처가
-파일로 저장되지 않아, 캡처 파일을 이 이름으로 넣은 뒤 part1 초안(KO/EN)의
-주석 처리된 이미지 참조를 활성화할 것.
+#6b(Instructions)의 예시 캡처 2장 — 발표자 원안 PPTX
+(260831_claude_chanwoo_import.pptx)에서 보존.
+- profile-instructions.png: claude.ai 설정 → Profile의 "Instructions for Claude" 화면
+- custom-instructions-gpt.jpg: ChatGPT 맞춤 설정(맞춤형 지침) 대화상자
