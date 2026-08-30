@@ -157,7 +157,7 @@ Request → model selects a tool → executes → observes result → decides ne
 
 # June 2024: Projects — Giving the Junior Domain Knowledge
 
-**The Introduction asked what we are still better at — domain knowledge and know-how. This is the first feature for handing it over.**
+**A workspace where instructions, knowledge, and memory are stored once and shared by every conversation**
 
 | Component | Role |
 |-----------|------|
@@ -171,6 +171,8 @@ Projects lays the team's context underneath them
 
 <!--
 #10a | 3분 | Part 1의 두 번째 하이라이트 시작 (Projects 3장: 개념 → 동작 → 실전)
+- 도입 멘트(인트로 회수): "The Introduction asked what we are still better at —
+  domain knowledge and know-how. This is the first feature for handing it over."
 - Projects에 12분을 쓰는 이유 명시.
 - 부 축 상기: #6b의 다음 정거장.
 - Introduction ② 매핑 회수: custom instructions = **instructions**,
