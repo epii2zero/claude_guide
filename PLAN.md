@@ -74,7 +74,8 @@ Claude Code는 이 모든 것(긴 컨텍스트 + 도구 사용 + MCP + 추론)�
   (IMO 금메달·수능 만점·최초의 수학 증명·리만가설 진전) + 실제 기사·논문 캡처 /
   AI를 IQ 150+의 후배로 생각하자
 - **Introduction ②**: 내가 나은 점(도메인 지식·노하우), 일을 시키는 법(교육·서버·
-  권한·검증) → 같은 고민의 기능 매핑: Instructions·memory·skills / Tools·MCP·harness
+  권한·검증) → 같은 고민의 기능 매핑: Instructions·memory·skills /
+  Tools·MCP·permissions·harness
 - **지도**: 발전 과정을 따라가는 오늘의 여정 / 다루지 않을 것: API 연동 개발
 
 ### Part 1. 채팅에서 에이전트까지 — 발전 과정과 기능별 사용법 (40분)
