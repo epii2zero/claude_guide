@@ -1,0 +1,74 @@
+name: Deploy slides to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Render Marp drafts to HTML
+        run: |
+          mkdir -p dist
+          for f in slides/*-draft.md; do
+            name=$(basename "$f" -draft.md)
+            npx -y @marp-team/marp-cli@latest "$f" -o "dist/${name}.html"
+          done
+
+      # 최종 PPTX가 만들어지면 여기서 PDF 변환본과 다운로드용 원본을 dist에 추가:
+      #   sudo apt-get install -y libreoffice
+      #   soffice --headless --convert-to pdf --outdir dist slides/final/claude-guide.pptx
+      #   cp slides/final/claude-guide.pptx dist/
+
+      - name: Build index page
+        run: |
+          {
+            echo '<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">'
+            echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
+            echo '<title>Claude 가이드 발표 자료</title>'
+            echo '<style>body{font-family:system-ui,sans-serif;max-width:640px;margin:3rem auto;padding:0 1rem;color:#1a1a1a}h1{color:#003876}li{margin:.5rem 0}a{color:#003876}</style>'
+            echo '</head><body><h1>Claude 가이드 발표 자료</h1>'
+            echo '<p>Marp 초안 렌더입니다. 문안 검토용이며, 최종본은 연구실 템플릿 기반 PPTX로 제작됩니다.</p><ul>'
+            for f in dist/*.html; do
+              name=$(basename "$f")
+              [ "$name" = "index.html" ] && continue
+              echo "<li><a href=\"${name}\">${name%.html}</a></li>"
+            done
+            for f in dist/*.pdf dist/*.pptx; do
+              [ -e "$f" ] || continue
+              name=$(basename "$f")
+              echo "<li><a href=\"${name}\">${name}</a></li>"
+            done
+            echo '</ul></body></html>'
+          } > dist/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
