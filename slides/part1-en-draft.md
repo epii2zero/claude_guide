@@ -38,20 +38,22 @@ Speaker notes stay in Korean for the presenter.
 
 # Chatbot (2023)
 
-![bg vertical right:40% fit](assets/part1/chat-claude.png)
-![bg fit](assets/part1/chat-gpt.png)
+<style scoped>
+p:has(img) { text-align: center; margin: 2px 0; }
+p:has(img) img { margin: 0 8px; vertical-align: top; }
+em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
+</style>
 
-**A chatbot that answers questions**
-
-**Limitations**
-
-- **Frozen knowledge** — only what it was trained on; unaware of recent information
-- **Manual relay** — every piece of context delivered by hand, every result carried back by hand
-- **Hallucination** — plausible wrong answers, spoken with confidence
-
-> These limitations motivate every feature that follows
+![h:195](assets/part1/chat-claude.png) ![h:195](assets/part1/chat-gpt.png)
 
 *< Chat screens of Claude and GPT >*
+
+- A chatbot that answers questions
+- Limitations
+  - **Frozen knowledge** - only what it was trained on; unaware of recent information
+  - **Manual relay** - every piece of context delivered by hand, every result carried back by hand
+  - **Hallucination** - plausible wrong answers, spoken with confidence
+  - These limitations motivate every feature that follows
 
 <!--
 #5 | 3분 | 사용자 구성 기반, 영어 문안
