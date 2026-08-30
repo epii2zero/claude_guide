@@ -83,7 +83,7 @@ DSP&AI Lab., Yonsei University
 **많은 사람들의 같은 고민**
 
 - AI에게 도메인 지식, 노하우를 주는 법 → **Instructions, memory, skills**
-- 서버 할당, 업무의 검증 → **Tools, MCP, harness**
+- 서버 할당, 권한 제한, 업무의 검증 → **Tools, MCP, permissions, harness**
 
 <!--
 #0.3 | 2분 | Introduction ② (사용자 직접 구성 버전 기반)

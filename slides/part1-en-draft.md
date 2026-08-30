@@ -251,7 +251,7 @@ MCP           ─┘                                             harness)
 
 # However Brilliant the Junior, Verification Is Ours
 
-**Two safety rules before Part 2 — the Introduction's "verifying the work, limiting permissions"**
+**Two safety rules before Part 2 — the Introduction's "permissions, verifying the work"**
 
 1. **Hallucination has not gone away** → always verify
    (run tests, review code, check sources — capability up, verification up)

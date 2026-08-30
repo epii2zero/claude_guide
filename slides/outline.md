@@ -38,7 +38,7 @@
 - **핵심 메시지**: 사람 후배에게 하던 일이 AI에게는 기능이 된다
 - 내용: 내가 나은 점(도메인 지식·노하우) / 일을 시키는 법(교육·서버 할당·권한
   제한·업무 검증) / 많은 사람들의 같은 고민 → **Instructions·memory·skills**,
-  **Tools·MCP·harness**
+  **Tools·MCP·permissions·harness**
 - 발표 포인트: 마지막 매핑 두 줄이 발표 전체의 지도 — Part 1(지시의 계보·도구)과
   Part 2(Claude Code)로 이어짐. "오늘 이 답들을 하나씩 봅니다"로 전환
 
@@ -58,7 +58,8 @@
 >
 > **인트로 프레임 관통**: 각 장을 "후배에게 무엇을 주는가"로 읽고, Introduction ②의
 > 매핑을 해당 장에서 회수 — instructions(#6→#10), memory(#10), tools(#8),
-> MCP(#13), harness(#14), 검증·권한(#15). skills는 Part 2 #20에서 완성.
+> MCP(#13), harness(#14), permissions·검증(#15, 상세는 Part 2 팀 설정).
+> skills는 Part 2 #20에서 완성.
 
 ### #4. 전체 타임라인 조망
 - **핵심 메시지**: 모든 기능은 "더 많은 컨텍스트, 더 많은 행동 능력" 한 방향의 진화였다

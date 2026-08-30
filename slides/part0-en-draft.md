@@ -79,7 +79,7 @@ DSP&AI Lab., Yonsei University
 **Everyone shares the same questions**
 
 - How to give AI domain knowledge and know-how → **instructions, memory, skills**
-- Allocating servers, verifying the work → **tools, MCP, harness**
+- Allocating servers, limiting permissions, verifying the work → **tools, MCP, permissions, harness**
 
 <!--
 #0.3 | 2분 | Introduction ② (사용자 구성 기반, 영어 문안)
