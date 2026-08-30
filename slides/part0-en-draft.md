@@ -1,8 +1,7 @@
 ---
 marp: true
-theme: default
+theme: lab
 paginate: true
-header: "From Chat to Agents — A Practical Guide to Claude"
 ---
 
 <!--
@@ -12,6 +11,9 @@ declarative bullets, angle-bracket captions, citations in small type.
 Korean draft (part0-draft.md) remains the planning/reference version.
 Speaker notes stay in Korean for the presenter.
 -->
+
+<!-- _class: title -->
+<!-- _paginate: false -->
 
 # How to Get the Most out of Claude
 

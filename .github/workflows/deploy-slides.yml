@@ -29,7 +29,7 @@ jobs:
           mkdir -p dist
           for f in slides/*-draft.md; do
             name=$(basename "$f" -draft.md)
-            npx -y @marp-team/marp-cli@latest "$f" -o "dist/${name}.html"
+            npx -y @marp-team/marp-cli@latest --theme-set slides/themes/lab.css "$f" -o "dist/${name}.html"
           done
           [ -d slides/assets ] && cp -r slides/assets dist/assets || true
 

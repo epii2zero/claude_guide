@@ -1,8 +1,7 @@
 ---
 marp: true
-theme: default
+theme: lab
 paginate: true
-header: "From Chat to Agents — A Practical Guide to Claude"
 ---
 
 <!--

@@ -1,8 +1,7 @@
 ---
 marp: true
-theme: default
+theme: lab
 paginate: true
-header: "채팅에서 에이전트까지 — Claude 활용 가이드"
 ---
 
 <!--
@@ -14,10 +13,14 @@ Part 0 인트로 슬라이드 초안 (#0.1~0.5, 7분)
 - 번호는 Part 1(#4~15)과의 충돌을 피해 #0.x를 임시 사용, 최종 렌더 시 통합.
 -->
 
+<!-- _class: title -->
+<!-- _paginate: false -->
+
 # 클로드를 더 잘 활용하는 법
 
 ## 채팅에서 에이전트까지
 
+DSP&AI Lab., Yonsei University
 발표자 · 날짜
 
 <!--

@@ -1,0 +1,150 @@
+/* @theme lab */
+/* DSP&AI Lab 랩미팅 템플릿(labmeeting-template.pptx)을 Marp로 근사한 테마.
+   매핑 근거: slides/template/STYLE.md
+   - 16:9 1280x720 → 96dpi 기준 1pt ≈ 1.333px
+   - 본문 슬라이드 제목 32pt ≈ 43px, 본문 18/16/14pt ≈ 24/21/19px
+   - 캡션 12pt ≈ 16px, 인용 10pt ≈ 13px, 핵심 색 #003876 */
+
+@import 'default';
+
+section {
+  width: 1280px;
+  height: 720px;
+  font-family: Arial, 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  font-size: 24px;
+  line-height: 1.45;
+  color: #1a1a1a;
+  background: #ffffff;
+  padding: 44px 64px 56px;
+  /* 템플릿 관행: 제목 상단 고정.
+     default 테마는 place-content(align-content) 기반 세로 중앙 정렬을 쓰므로
+     align-content로 무력화해야 한다 (justify-content만으로는 효과 없음). */
+  place-content: start stretch !important;
+}
+
+section.title,
+section.divider {
+  place-content: center !important;
+}
+
+section h1 {
+  color: #003876;
+  font-size: 43px;
+  font-weight: 700;
+  margin: 0 0 26px;
+  line-height: 1.2;
+}
+
+section h2 {
+  color: #003876;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 18px 0 10px;
+}
+
+section ul,
+section ol {
+  margin: 6px 0;
+  padding-left: 1.2em;
+}
+
+section li {
+  margin: 4px 0;
+}
+
+section li li {
+  font-size: 21px; /* 16pt */
+}
+
+section li li li {
+  font-size: 19px; /* 14pt */
+}
+
+section blockquote {
+  border-left: 4px solid #003876;
+  color: #37414f;
+  padding: 2px 0 2px 16px;
+  margin: 14px 0;
+  font-size: 22px;
+}
+
+section table {
+  font-size: 21px;
+  margin: 10px 0;
+}
+
+section th {
+  background: #003876;
+  color: #ffffff;
+  padding: 6px 14px;
+}
+
+section td {
+  padding: 6px 14px;
+  border: 1px solid #d8dee8;
+}
+
+section pre {
+  font-size: 18px;
+  line-height: 1.35;
+  background: #f4f6fa;
+  border: 1px solid #d8dee8;
+  border-radius: 6px;
+}
+
+section code {
+  font-size: 0.9em;
+}
+
+/* 우하단 페이지 번호 (템플릿 관행) */
+section::after {
+  color: #5a6472;
+  font-size: 18px;
+}
+
+/* 그림 캡션: "< caption >" 꺾쇠 관행 — 이미지 아래 이탤릭 문단에 사용 */
+section em {
+  color: #5a6472;
+}
+
+/* 타이틀 슬라이드: 제목(#003876) / 소속 / 발표자 / 날짜 — 템플릿 layout1 근사 */
+section.title {
+  justify-content: center;
+  text-align: center;
+}
+
+section.title h1 {
+  font-size: 46px;
+  margin-bottom: 8px;
+}
+
+section.title h2 {
+  color: #37414f;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 60px;
+}
+
+section.title p {
+  font-size: 22px;
+  color: #37414f;
+  line-height: 1.7;
+}
+
+/* 섹션 표지: 섹션명만 크게 (템플릿 slide5 "Background" 근사) */
+section.divider {
+  justify-content: center;
+  text-align: center;
+}
+
+section.divider h1 {
+  font-size: 54px;
+  margin: 0;
+}
+
+/* 인용(참고문헌) 관행: 슬라이드 상단 10pt Times New Roman */
+section .cite {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 13px;
+  color: #5a6472;
+}
