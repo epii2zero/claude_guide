@@ -5,8 +5,8 @@ paginate: true
 ---
 
 <!--
-Part 1 slides — ENGLISH (final-deck language), 10 slides / 40 min
-(original numbering #4~15; #9 Artifacts and #12 Computer use removed).
+Part 1 slides — ENGLISH (final-deck language), 11 slides / 40 min
+(original numbering #4~15; #9 Artifacts and #12 Computer use removed; #6 split into #6a/#6b).
 Copy follows the lab template's English style. Korean draft (part1-draft.md)
 remains the planning/reference version; timing and demo pointers are identical.
 Speaker notes stay in Korean for the presenter.
@@ -68,7 +68,7 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 
 ---
 
-# Fundamentals — Briefing the Junior Well
+# Chatbot-Era Usage ① — Briefing Well
 
 **Bad question**
 > "My code doesn't work. Please fix it."
@@ -80,12 +80,32 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 **Formula: context + materials + constraints + output format** — the same briefing you would give a human junior
 
 <!--
-#6 | 7분 (시연 3분 포함)
+#6a | 4분 (시연 3분 포함)
 - [시연 자리] 두 질문을 실제로 던져 응답 차이 (part1-demos.md 시연 1).
 - 시연 후: "The difference is not the model — it is the quality of the briefing."
-- 역량 ① Asking well. 시스템 프롬프트(2023.11, Claude 2.1) 소개 —
-  반복하던 지시를 대화에서 분리한 첫걸음 = Introduction ②의 **instructions**의
-  출발점. 복선: "이 흐름이 스킬까지 이어집니다."
+- 역량 ① Asking well.
+-->
+
+---
+
+# Chatbot-Era Usage ② — Personas, and the Birth of Instructions
+
+**"You are a backend engineer with ten years of experience" — a role changes the answer**
+
+- **Assigning a persona** — the signature chatbot-era technique for setting perspective, tone, and standards
+- The problem: the same role and rules had to be **retyped in every conversation**
+- So they became features:
+  - **System prompt** (Nov 2023, API) — fix the role and rules outside the conversation
+  - **Projects custom instructions** (Jun 2024) — store once and reuse, for everyone (details shortly)
+
+**The instructions lineage born here runs on to CLAUDE.md and skills**
+
+<!--
+#6b | 3분 | 지시의 계보 부 축의 출발 정거장
+- 후배 은유: 페르소나 = 후배에게 역할과 기준을 정해주는 것.
+- Introduction ② 매핑 회수: **instructions**의 출발점.
+- 복선: Projects(#10) → CLAUDE.md → skills로 이어진다고 예고.
+- 페르소나 응답 차이 캡처 1장으로 보강 가능 (준비물 후보).
 -->
 
 ---
