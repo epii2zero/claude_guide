@@ -36,20 +36,30 @@ Speaker notes stay in Korean for the presenter.
 
 ---
 
-# 2023: The Starting Point — The Junior's First Day
+# Chatbot (2023)
 
-**Knows a great deal — but nothing about our work**
+![bg vertical right:40% fit](assets/part1/chat-claude.png)
+![bg fit](assets/part1/chat-gpt.png)
 
-- 🔒 **Frozen knowledge** — world knowledge, yet none of our domain, our code, or recent facts
-- 📋 **Copy-paste workflow** — every brief delivered by hand, every result carried back by hand
-- ❓ **Hallucination** — speaks confidently even about what it does not know
+**A chatbot that answers questions**
 
-> Each of these walls became the reason for a feature to come
+**Limitations**
+
+- **Frozen knowledge** — only what it was trained on; unaware of recent information
+- **Manual relay** — every piece of context delivered by hand, every result carried back by hand
+- **Hallucination** — plausible wrong answers, spoken with confidence
+
+> These limitations motivate every feature that follows
+
+*< Chat screens of Claude and GPT >*
 
 <!--
-#5 | 3분
+#5 | 3분 | 사용자 구성 기반, 영어 문안
+- "수동 전달"은 "Manual relay"로 — 사람이 중계기 역할을 한다는 뉘앙스.
+  ("Copy-paste workflow"보다 원안의 표현 의도에 가까움)
+- 후배 은유 연결 멘트: "Like a junior's first day — knows a great deal,
+  but nothing about our work."
 - 2023.03 첫 Claude(API), 2023.07 claude.ai 공개.
-- 청중이 겪은 "채팅 AI의 답답함"을 세 가지로 명명.
 - 마지막 줄이 Part 1 전체의 예고편.
 -->
 
@@ -129,7 +139,7 @@ Request → model selects a tool → executes → observes result → decides ne
 <!--
 #9 | 2분 | 간단히 언급
 - 사전 녹화 30초 또는 캡처 2장 (시연 4 축소판).
-- "복붙 워크플로우의 벽(#5)이 절반 열린 지점" 한 줄로 연결.
+- "수동 전달(manual relay)의 벽(#5)이 절반 열린 지점" 한 줄로 연결.
 -->
 
 ---
