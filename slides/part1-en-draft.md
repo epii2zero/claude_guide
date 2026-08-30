@@ -13,7 +13,7 @@ Speaker notes stay in Korean for the presenter.
 
 # One Direction of Evolution
 
-**Every feature gave the model more context and more ability to act**
+**Every feature gave the junior more context and more ability to act**
 
 ```
 2023          2024                    2025~                     2026
@@ -29,18 +29,20 @@ Speaker notes stay in Korean for the presenter.
 <!--
 #4 | 2분
 - "지금부터 40분간 이 타임라인을 왼쪽에서 오른쪽으로 걷습니다."
+- 인트로 연결 멘트: "This timeline is the industry's three-year answer to the
+  Introduction's two questions — what to give the junior, and how to delegate."
 - 기능이 "왜 나왔는지"를 보면 언제 써야 하는지도 보인다는 프레임.
 -->
 
 ---
 
-# 2023: The Starting Point — A Model That Answers
+# 2023: The Starting Point — The Junior's First Day
 
-**Useful — but walled in three ways**
+**Knows a great deal — but nothing about our work**
 
-- 🔒 **Frozen knowledge** — training data only; no access to our code or recent facts
-- 📋 **Copy-paste workflow** — humans ferry every context in and every result out
-- ❓ **Hallucination** — plausible wrong answers, delivered with confidence
+- 🔒 **Frozen knowledge** — world knowledge, yet none of our domain, our code, or recent facts
+- 📋 **Copy-paste workflow** — every brief delivered by hand, every result carried back by hand
+- ❓ **Hallucination** — speaks confidently even about what it does not know
 
 > Each of these walls became the reason for a feature to come
 
@@ -53,7 +55,7 @@ Speaker notes stay in Korean for the presenter.
 
 ---
 
-# Fundamentals — Asking Well Still Matters
+# Fundamentals — Briefing the Junior Well
 
 **Bad question**
 > "My code doesn't work. Please fix it."
@@ -62,19 +64,20 @@ Speaker notes stay in Korean for the presenter.
 > [Situation] Adding pagination to the orders API / [Materials] error log + function attached
 > [Constraint] DB schema is fixed / [Request] two likely causes, each with a fix as a diff
 
-**Formula: context + materials + constraints + output format**
+**Formula: context + materials + constraints + output format** — the same briefing you would give a human junior
 
 <!--
 #6 | 6분 (시연 3분 포함)
 - [시연 자리] 두 질문을 실제로 던져 응답 차이 (part1-demos.md 시연 1).
-- 시연 후: "차이는 모델 성능이 아니라 입력의 질입니다."
+- 시연 후: "The difference is not the model — it is the quality of the briefing."
 - 역량 ① Asking well. 시스템 프롬프트(2023.11, Claude 2.1) 소개 —
-  반복하던 지시를 대화에서 분리한 첫걸음. 복선: "이 흐름이 스킬까지 이어집니다."
+  반복하던 지시를 대화에서 분리한 첫걸음 = Introduction ②의 **instructions**의
+  출발점. 복선: "이 흐름이 스킬까지 이어집니다."
 -->
 
 ---
 
-# 2023–24: Larger and Richer Inputs
+# 2023–24: Handing Over the Onboarding Binder, Whole
 
 **Long context** — 100K → 200K → now 1M tokens
 Paste logs, documents, and code whole; beyond "summarize this" to "find the root cause in this log"
@@ -92,9 +95,9 @@ Error screenshots, architecture diagrams, UI mockups as-is
 
 ---
 
-# May 2024: Hands — Tool Use
+# May 2024: Handing the Junior Tools — Tool Use
 
-**The model starts interacting with the world beyond its training data**
+**The model starts acting on the world beyond its training data — the "tools" of the Introduction begin here**
 
 ```
 Request → model selects a tool → executes → observes result → decides next step
@@ -114,7 +117,7 @@ Request → model selects a tool → executes → observes result → decides ne
 
 ---
 
-# June 2024: Deliverables — Artifacts
+# June 2024: The Junior Reports with Deliverables — Artifacts
 
 **Receive work products, not conversation**
 
@@ -131,9 +134,9 @@ Request → model selects a tool → executes → observes result → decides ne
 
 ---
 
-# June 2024: Projects — Store Once, Reuse Everywhere
+# June 2024: Projects — Giving the Junior Domain Knowledge
 
-**Born in the chat era; still in daily use in the agent era**
+**The Introduction asked what we are still better at — domain knowledge and know-how. This is the first feature for handing it over.**
 
 | Component | Role |
 |-----------|------|
@@ -148,6 +151,8 @@ Projects lays the team's context underneath them
 #10 | 5분 | Part 1의 두 번째 하이라이트 시작
 - "잠깐 쓰고 지나간 기능이 아니다" — 10분을 쓰는 이유 명시.
 - 부 축 상기: 시스템 프롬프트(개발자 API 기능)가 일반 사용자 기능이 된 두 번째 정거장.
+- Introduction ② 매핑 회수: custom instructions = **instructions**,
+  knowledge + 이후의 Memory = **memory**.
 - 이후 Memory로 확장 한 줄.
 -->
 
@@ -175,9 +180,9 @@ Projects lays the team's context underneath them
 
 ---
 
-# Oct 2024: Computer Use — An Early Agent Experiment
+# Oct 2024: Delegate and Watch — Computer Use
 
-**From step-by-step instruction to delegate-and-watch**
+**From step-by-step instruction to delegate-and-watch — the first experiment in handing the junior a whole task**
 
 - The model views the screen, decides, and moves the cursor like a person (beta)
 - Not a mature product — a preview of the direction
@@ -192,9 +197,9 @@ Projects lays the team's context underneath them
 
 ---
 
-# Nov 2024: MCP — A Standard for Connections
+# Nov 2024: MCP — A Standard Key to Internal Systems
 
-**Per-service integrations → one open protocol**
+**Granting the junior access to servers and internal systems becomes one open protocol — the "MCP" of the Introduction**
 
 ```
 [Internal wiki]  [Issue tracker]  [Internal DB]
@@ -207,7 +212,7 @@ Projects lays the team's context underneath them
 - Build one MCP server; use it from every MCP client
 - Adopted industry-wide as an open standard
 
-**Skill ⑧ — integration design and access boundaries**
+**Skill ⑧ — integration design and access boundaries** (limiting permissions remains our job)
 
 <!--
 #13 | 3분
@@ -218,17 +223,17 @@ Projects lays the team's context underneath them
 
 ---
 
-# 2025: Convergence — All the Pieces Assemble
+# 2025: Convergence — A Junior You Can Hand Whole Tasks To
 
-**Complex work demands deep reasoning + a self-running loop**
+**All the pieces assemble into a model that runs its own loop — an agent**
 
 ```
 Long context ─┐
 Vision        ─┤
 Tool use      ─┼─→  A model that plans, uses tools,     =  an agent
-Artifacts     ─┤    checks results, and loops on its own
-Knowledge     ─┤    (extended thinking, Feb 2025)
-MCP           ─┘
+Artifacts     ─┤    checks results, and loops on its own    (the frame around
+Knowledge     ─┤    (extended thinking, Feb 2025)            this loop is the
+MCP           ─┘                                             harness)
 ```
 
 **Feb 2025 — the assembled result arrives: Claude Code**
@@ -237,13 +242,16 @@ MCP           ─┘
 #14 | 4분 | Part 1의 클라이맥스
 - [도식 자리] 조립 도식 — #8 루프 도식의 확장형. Part 2 #16에서 재등장.
 - 중심 문장: "새 발명품이 아니라 방금 본 기능들의 조립입니다." 호흡 길게.
+- Introduction ② 매핑 완성: 루프를 감싸는 틀 = **harness** — 이로써
+  tools·MCP·harness 줄이 모두 채워짐. instructions·memory·skills 줄은
+  Projects~Part 2(CLAUDE.md·skills)에서 완성된다고 언급.
 -->
 
 ---
 
-# With Greater Capability, Greater Care
+# However Brilliant the Junior, Verification Is Ours
 
-**Two safety rules before Part 2**
+**Two safety rules before Part 2 — the Introduction's "verifying the work, limiting permissions"**
 
 1. **Hallucination has not gone away** → always verify
    (run tests, review code, check sources — capability up, verification up)
