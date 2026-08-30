@@ -94,11 +94,16 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 
 - **Assigning a persona** — the signature chatbot-era technique for setting perspective, tone, and standards
 - The problem: the same role and rules had to be **retyped in every conversation**
-- So they became features:
+- So they became features — where you store it is how far it applies:
   - **System prompt** (Nov 2023, API) — fix the role and rules outside the conversation
-  - **Projects custom instructions** (Jun 2024) — store once and reuse, for everyone (details shortly)
+  - **Profile instructions** (claude.ai profile, "Instructions for Claude") — applied **account-wide**
+  - **Projects custom instructions** (Jun 2024) — scoped **per project** (details shortly)
 
 **The instructions lineage born here runs on to CLAUDE.md and skills**
+
+<!-- 캡처 추가 대기: assets/part1/profile-instructions.png 저장 후
+![bg right:35% fit](assets/part1/profile-instructions.png) 활성화 + 캡션
+*< Profile instructions in Claude settings >* 추가 -->
 
 <!--
 #6b | 3분 | 지시의 계보 부 축의 출발 정거장
