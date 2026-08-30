@@ -1,8 +1,7 @@
 ---
 marp: true
-theme: default
+theme: lab
 paginate: true
-header: "채팅에서 에이전트까지 — Claude 활용 가이드"
 ---
 
 <!--
