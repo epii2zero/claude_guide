@@ -139,6 +139,11 @@ Error screenshots, architecture diagrams, UI mockups as-is
 
 # May 2024: Handing the Junior Tools — Tool Use
 
+<style scoped>
+table { font-size: 19px; }
+pre { margin: 6px 0; }
+</style>
+
 **The problem: the model could only talk — every search, calculation, and lookup was done by a human, results pasted back by hand**
 
 ```
@@ -147,12 +152,17 @@ Before — the human as relay (#5's frozen knowledge + manual relay)
 
 After — the model picks and uses tools (Tool use)
   request → model selects a tool → executes → observes result → decides next step
-            (web search, code execution, lookups, ...)
 ```
 
-- **Frozen knowledge opens up** — current information via web search, exact math and charts via code execution
-- **Less manual relay** — the model sees results without a human courier (fully resolved by agents, #14)
-- **First step toward agents** — a model that chooses its tools; the "tools" of the Introduction begin here
+The tools actually available today (Claude API, as of Aug 2026):
+
+| Kind | Tools |
+|------|-------|
+| **Server tools** — run on Anthropic's infrastructure | Web search · Web fetch · Code execution · Tool search |
+| **Client tools** — Anthropic-defined, run in our environment | Bash · Text editor · Computer use · Memory |
+| **Custom tools** — self-defined (function calling) | Our APIs, DBs, internal services — anything |
+
+- **Frozen knowledge and manual relay start to open up** (fully resolved by agents, #14) / **first step toward agents** — the "tools" of the Introduction begin here
 
 **Skill ④ — knowing what the model can and cannot do**
 
@@ -162,6 +172,9 @@ After — the model picks and uses tools (Tool use)
   대신 하는 중계기였다 → ③ 모델이 도구를 골라 쓰게 허용 (Tool use, 2024.05 GA).
 - 개발자용 정확한 한 줄(말로): 실행 주체는 앱/클라이언트 — 모델은 요청과 판단.
   무엇을 열어줄지는 우리가 정한다(#13·#15 복선).
+  (표의 server tools만 예외적으로 Anthropic 인프라가 실행까지 대행)
+- 도구 표 출처: Claude API 공식 레퍼런스 (2026.08 기준).
+- claude.ai 채팅에서는 같은 능력이 웹 검색·분석 도구·파일 생성·커넥터로 노출.
 - [도식 자리] After 줄을 루프 도식으로 — #14에서 "스스로 도는 루프"로 확장.
 - 개발자 한 줄: 좋은 도구 설명 = 좋은 API 문서.
 -->

@@ -151,6 +151,11 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 12px; }
 
 # 2024.05: 후배에게 도구를 쥐여주다 — Tool use
 
+<style scoped>
+table { font-size: 19px; }
+pre { margin: 6px 0; }
+</style>
+
 **문제: 모델은 말만 할 수 있었다 — 검색·계산·조회를 전부 사람이 대신 하고, 결과를 손으로 붙여넣었다**
 
 ```
@@ -159,12 +164,17 @@ Before — 사람이 중계기 (#5의 갇힌 지식 + 수동 전달)
 
 After — 모델이 도구를 골라 쓴다 (Tool use)
   요청 → 모델이 도구 선택 → 실행 → 결과 관찰 → 다음 판단
-          (웹 검색, 코드 실행, 조회, ...)
 ```
 
-- **갇힌 지식이 열린다** — 웹 검색으로 최신 정보, 코드 실행으로 정확한 계산·차트
-- **수동 전달이 줄어든다** — 사람의 중계 없이 모델이 결과까지 확인 (완전 해소는 에이전트, #14)
-- **에이전트로 가는 첫 단추** — "도구를 골라 쓰는 모델", Introduction ②의 tools가 여기서 시작
+지금 실제로 쓸 수 있는 도구들 (Claude API 기준, 2026.08):
+
+| 구분 | 도구 |
+|------|------|
+| **서버 도구** — Anthropic 인프라에서 실행 | Web search · Web fetch · Code execution · Tool search |
+| **클라이언트 도구** — Anthropic 정의, 우리 환경에서 실행 | Bash · Text editor · Computer use · Memory |
+| **커스텀 도구** — 직접 정의 (function calling) | 우리 API·DB·사내 서비스, 무엇이든 |
+
+- **갇힌 지식·수동 전달이 풀리기 시작** (완전 해소는 에이전트, #14) / **에이전트로 가는 첫 단추** — Introduction ②의 tools가 여기서 시작
 
 **역량 ④ 능력 범위 파악** — 지금 모델이 할 수 있는 일과 없는 일을 아는 것
 
@@ -175,6 +185,12 @@ After — 모델이 도구를 골라 쓴다 (Tool use)
   허용한 것이 Tool use (2024.05 GA).
 - 개발자용 정확한 한 줄(말로): 실행 주체는 앱/클라이언트 쪽 — 모델은 도구
   "요청"과 결과 "판단"을 맡는다. 그래서 무엇을 열어줄지는 우리가 정한다(#13·#15 복선).
+  (표의 "서버 도구"는 예외적으로 Anthropic 인프라가 실행까지 대행하는 종류)
+- 도구 표 출처: Claude API 공식 레퍼런스 (2026.08 기준) — 서버 도구 4종(web
+  search/web fetch/code execution/tool search), Anthropic 정의 클라이언트 도구
+  (bash/text editor/computer use/memory), 커스텀 도구(function calling).
+- claude.ai 채팅에서는 같은 능력이 웹 검색·분석 도구(코드 실행)·파일 생성·
+  커넥터(구글 드라이브 등)로 노출된다 — 청중이 매일 보는 버튼이 바로 이것.
 - [도식 자리] After 줄을 루프 도식으로 (요청→선택→실행→관찰이 도는 그림).
   이 도식이 #14에서 "스스로 도는 루프"로 확장된다 — 같은 시각 언어 유지.
 - 개발자 관점 한 줄: 도구 설명을 잘 쓰는 것 = API 문서를 잘 쓰는 것.
