@@ -5,8 +5,9 @@ paginate: true
 ---
 
 <!--
-Part 1 slides — ENGLISH (final-deck language), 13 slides / 41 min
-(original numbering #4~15; #9 Artifacts and #12 Computer use removed; #6 and #10 each split into a/b; #13b added after #13).
+Part 1 slides — ENGLISH (final-deck language), 14 slides / 44 min
+(original numbering #4~15; #12 Computer use removed; #6 and #10 each split into a/b;
+#13b added after #13; #9 reused for the new Memory slide).
 Copy follows the lab template's English style. Korean draft (part1-draft.md)
 remains the planning/reference version; timing and demo pointers are identical.
 Speaker notes stay in Korean for the presenter.
@@ -37,7 +38,7 @@ Speaker notes stay in Korean for the presenter.
 
 ---
 
-# Chatbot (2023)
+# Early Chatbot
 
 <style scoped>
 p:has(img) { text-align: center; margin: 2px 0; }
@@ -52,7 +53,7 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 - A chatbot that answers questions
 - Limitations
   - **Frozen knowledge** - only what it was trained on; unaware of recent information
-  - **Manual relay** - every piece of context delivered by hand, every result carried back by hand
+  - **Manual work** - every piece of context typed in by hand, every result carried back by hand
   - **Hallucination** - plausible wrong answers, spoken with confidence
   - These limitations motivate every feature that follows
 
@@ -68,7 +69,7 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 
 ---
 
-# Chatbot-Era Usage ① — Briefing Well
+# Briefing Well — the Chatbot-Era Fundamental
 
 **Bad question**
 > "My code doesn't work. Please fix it."
@@ -88,7 +89,7 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 14px; }
 
 ---
 
-# Chatbot-Era Usage ② — Instructions
+# Instructions
 
 <style scoped>
 p:has(img) { text-align: center; margin: 2px 0; }
@@ -137,51 +138,68 @@ Error screenshots, architecture diagrams, UI mockups as-is
 
 ---
 
-# May 2024: Handing the Junior Tools — Tool Use
+# Tools
 
 <style scoped>
 table { font-size: 19px; }
-pre { margin: 6px 0; }
+.cite { font-size: 15px; color: #5a6472; margin-top: 6px; }
 </style>
 
-**The problem: the model could only talk — every search, calculation, and lookup was done by a human, results pasted back by hand**
+**Working with a chat-only bot — the model writes code → a human edits the file → a human runs it → carries the result back to the model**
 
-```
-Before — the human as relay (#5's frozen knowledge + manual relay)
-  request → model: "try searching for ..." → human runs it → pastes the result → model again
-
-After — the model picks and uses tools (Tool use)
-  request → model selects a tool → executes → observes result → decides next step
-```
-
-The tools actually available today (Claude API, as of Aug 2026):
+The tools given to the AI (Claude API, as of Aug 2026):
 
 | Kind | Tools |
 |------|-------|
-| **Server tools** — run on Anthropic's infrastructure | Web search · Web fetch · Code execution · Tool search |
-| **Client tools** — Anthropic-defined, run in our environment | Bash · Text editor · Computer use · Memory |
-| **Custom tools** — self-defined (function calling) | Our APIs, DBs, internal services — anything |
+| **Run on the server, results returned** | Web search / fetch · Code execution · Tool search |
+| **Run locally — the beginning of Claude Code** | Text editor · Bash · Computer use · Memory |
+| **Self-defined (custom tools)** | Our APIs, DBs, internal services — anything |
 
-- **Frozen knowledge and manual relay start to open up** (fully resolved by agents, #14) / **first step toward agents** — the "tools" of the Introduction begin here
+- **Knowledge beyond pretraining** — current information via web search; exact values and charts via code execution
+- **First step toward agents** — a model that chooses its tools (the "tools" of the Introduction begin here)
 
 **Skill ④ — knowing what the model can and cannot do**
 
+<p class="cite">platform.claude.com/docs/en/agents-and-tools/tool-use/overview · claude.com/blog/tool-use-ga · claude.com/blog/web-search</p>
+
 <!--
-#8 | 3분 | 서사: 무슨 문제를 풀려고 나왔나
-- 서사 순서: ① #5의 두 한계(갇힌 지식·수동 전달) 소환 → ② 사람이 검색·실행을
-  대신 하는 중계기였다 → ③ 모델이 도구를 골라 쓰게 허용 (Tool use, 2024.05 GA).
+#8 | 3분 | 사용자 원안 v3 문체 기반 | 서사: 무슨 문제를 풀려고 나왔나
+- 서사: ① #5의 두 한계(갇힌 지식·수동 작업) 소환 — 볼드 줄의 화살표 흐름 →
+  ② 모델이 도구를 골라 쓰게 허용 (Tool use, 2024.05 GA) → ③ 루프(요청→선택→
+  실행→관찰)는 말로, 시각화는 #14에서.
+- "로컬에서 실행" 줄이 Part 2 복선: Text editor + Bash = Claude Code의 뼈대.
 - 개발자용 정확한 한 줄(말로): 실행 주체는 앱/클라이언트 — 모델은 요청과 판단.
   무엇을 열어줄지는 우리가 정한다(#13·#15 복선).
-  (표의 server tools만 예외적으로 Anthropic 인프라가 실행까지 대행)
-- 도구 표 출처: Claude API 공식 레퍼런스 (2026.08 기준).
 - claude.ai 채팅에서는 같은 능력이 웹 검색·분석 도구·파일 생성·커넥터로 노출.
-- [도식 자리] After 줄을 루프 도식으로 — #14에서 "스스로 도는 루프"로 확장.
 - 개발자 한 줄: 좋은 도구 설명 = 좋은 API 문서.
 -->
 
 ---
 
-# June 2024: Projects — Giving the Junior Domain Knowledge
+# Memory
+
+**Instructions are know-how we hand over; memory is know-how the model builds up on its own**
+
+- **Context that outlives the conversation** — preferences, decisions, and ongoing work carry into the next chat
+- **Managed automatically** — the model summarizes and updates as chats accumulate (viewable, editable, deletable)
+- Scopes: **account-wide memory** / **project memory** (next slide)
+- The API **memory tool** — an agent records and reuses its own know-how in files (the Memory row of #8's table)
+
+**The turning point of the junior metaphor: the junior who only knew what we taught starts keeping their own work notes**
+
+<!--
+#9 | 3분 | 신설 (Memory — 모델이 자체적으로 쌓아가는 노하우)
+- 배치 이유: 시간순(2025)이 아니라 서사순 — instructions(주는 노하우) →
+  memory(쌓이는 노하우) → Project(팀 공간에 담기). 시간순 아님을 한 마디로.
+- Introduction ② 매핑 회수: **memory** — 주는 지식이 아니라 쌓이는 지식.
+- claude.ai memory: 2025년 하반기 도입 ⚠️ 시점·플랜 조건 발표 전 재확인.
+- 신뢰 포인트(말로): 열람·수정·삭제 가능, 시크릿 채팅은 기억에 안 남음.
+- 검증 습관 연결: 기억도 요약이라 틀릴 수 있다(#15 복선).
+-->
+
+---
+
+# Project
 
 <style scoped>
 h1 { font-size: 37px; }
@@ -221,7 +239,7 @@ table { font-size: 20px; }
 
 ---
 
-# Projects — How Knowledge Actually Works
+# Project — How Context Actually Works
 
 **Small enough, read whole; too large, retrieved**
 
@@ -248,33 +266,37 @@ knowledge > context window   →  RAG retrieval kicks in (paid plans)
 
 ---
 
-# Projects in Practice — Three Patterns
+# Project Practice
 
-**① Team convention guide** — API design and review rules as instructions
-→ every design consultation reflects team rules automatically
+<style scoped>
+.cite { font-size: 15px; color: #5a6472; margin-top: 8px; }
+</style>
 
-**② Onboarding and domain knowledge** — design docs, glossary, architecture notes
-→ "how does X work here?" answered even for newcomers
+**A simple paper-analysis project — store it once, and the next analysis carries on**
 
-**③ Recurring work templates** — postmortems, release notes, weekly reports
-→ same format and tone, every time
+1. In the first chat, **input a paper and analyze it**; organize the results into a table
+2. Export the analysis summary, the results table, and the **analysis know-how as project documents**
+3. In a **new chat**, analyze a follow-up paper the same way
+4. Build a **comparison table across the two papers** — the earlier chat's criteria and know-how carry over
 
-**Tips**: keep instructions short and imperative (short rules are followed best)
-/ curate documents — noise lowers quality even in retrieval mode / one project per job
-/ promote a well-built personal project to a team project
+**The same pattern for teams**: convention guides · onboarding/domain knowledge · recurring-work templates
+
+<p class="cite">Demo material: ISTFTNet — arxiv.org/abs/2203.02395 · Vocos — arxiv.org/abs/2306.00814</p>
 
 <!--
-#11 | 6분 (시연 3분 포함)
-- [시연 자리] 시연 5 확대판: 지침 안/밖 비교 + 용어집 질의 (part1-demos.md).
-- 시연 후: "같은 질문, 다른 답. 차이는 담아둔 지침과 문서뿐."
-- 역량 ⑥ 지식의 문서화. Part 2 복선: "이 지침이 레포로 들어간 것이 CLAUDE.md."
+#11 | 6분 (미니 시연 3~4분 포함) | 사용자 원안 v3 "Project Practice" 기반
+- [시연 자리] 원안 시나리오: ISTFTNet 분석 → 프로젝트 문서로 내보내기 →
+  새 채팅에서 Vocos 분석 + 비교표 (part1-demos.md 시연 5를 이 시나리오로 교체).
+- 시연 후: "새 채팅인데 분석 기준이 이어졌다 — 담아둔 문서와 memory 덕분."
+- 팀 패턴 3종·팁은 말로 짧게, 상세는 가이드 문서.
+- 역량 ⑥ 지식의 문서화. Part 2 복선: CLAUDE.md.
 -->
 
 ---
 
-# Nov 2024: MCP — Standardizing the Connection
+# Model Context Protocol
 
-**The problem: models could use tools, but every connection was hand-built — M apps × N tools = M×N custom integrations**
+**An open standard for talking to programs, local or on other servers** — the problem: every connection was hand-built (M apps × N tools = M×N custom integrations)
 
 ```
 Before (M×N) — a dedicated connector per app-tool pair
