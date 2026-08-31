@@ -38,7 +38,7 @@ MCP (#13)             →   connections to internal systems (#21)
 ```
 
 - The decisive difference from chat: **reads, fixes, tests, and commits** — no human carries the results
-  (#5's "manual relay" fully resolved here)
+  (#5's "manual work" fully resolved here)
 - One-line history: research preview Feb 2025 → GA May 2025 → 2.x today
 
 <!--
@@ -66,10 +66,10 @@ cd our-project && claude        # log in and start talking
 
 | Entry point | Character |
 |-------------|-----------|
-| **CLI (terminal)** | The original — the baseline for every feature |
+| **CLI (terminal)** | The original — newest features land here first |
 | **VS Code · JetBrains extensions** | Inside the IDE you know — convenient diffs |
-| **Claude desktop** | Convenient GUI — both chat and code |
-| **claude.ai/code (web)** | Remote sessions in the browser — no local install |
+| **Claude desktop** | Convenient GUI, chat and code — local, cloud, and SSH environments + remote control |
+| **claude.ai/code (web)** | Browser, partial mobile — cloud environments only, no automatic memory |
 
 <!--
 #17 | 3분 | 사용자 원안 12장(Starting Claude Code) 기반
@@ -150,7 +150,7 @@ Hooks (Jun 2025) — scripts that run before/after tool calls (deterministic)
 
 ---
 
-# Team Setup ③ Agent Skills — the Final Form of Repeated Instructions
+# Skills — the Final Form of Repeated Instructions
 
 <style scoped>
 h1 { font-size: 32px; }
