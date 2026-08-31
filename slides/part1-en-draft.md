@@ -98,17 +98,18 @@ em { display: block; text-align: center; font-size: 17px; margin: 2px 0 12px; }
 
 ![h:205](assets/part1/profile-instructions.png) ![h:230](assets/part1/custom-instructions-gpt.jpg)
 
-*< Profile instructions in Claude and custom instructions in ChatGPT >*
+*< Custom instructions in Claude and ChatGPT >*
 
-- **The age of prompt engineering** — context and rules delivered along with every request
+- **The age of prompt engineering** — context, rules, and the desired output format typed in with every chat request
   - **"You are a backend engineer with ten years of experience"** — assigning a persona
-- **The shift: what was retyped into every chat is now entered whole in settings, once** — applied to every conversation automatically
-- The instructions lineage born here runs on to Projects instructions → CLAUDE.md → skills
+- **Global instruction** — context once retyped into every conversation, now managed separately and applied to every chat automatically
+- **An early way of handing know-how to the AI** — the lineage runs on to Projects instructions → CLAUDE.md → skills
 
 <!--
-#6b | 3분 | 사용자 원안 기반 | 지시의 계보 부 축의 출발 정거장
+#6b | 3분 | 사용자 원안 기반 (전체본 v2 문안) | 지시의 계보 부 축의 출발 정거장
 - 캡처 2장: 왼쪽 Claude 프로필 개인 지침, 오른쪽 ChatGPT 맞춤 설정 (원안 보존본).
-- 변화의 서사가 핵심: 매번 채팅에 붙여넣던 역할·규칙 → 설정에 한 번 통째로.
+- 변화의 서사가 핵심: 매번 채팅에 붙여넣던 역할·규칙 → 설정에 한 번
+  통째로(global instruction).
 - 담는 곳의 계보(스피커용 연표): system prompt(2023.11, API) →
   profile instructions(계정 전역) → Projects custom instructions(2024.06,
   프로젝트 단위) → CLAUDE.md → skills. 담는 곳이 곧 적용 범위.
@@ -249,26 +250,36 @@ knowledge > context window   →  RAG retrieval kicks in (paid plans)
 
 ---
 
-# Nov 2024: MCP — A Standard Key to Internal Systems
+# Nov 2024: MCP — Standardizing the Connection
 
-**Granting the junior access to servers and internal systems becomes one open protocol — the "MCP" of the Introduction**
+**The problem: models could use tools, but every connection was hand-built — M apps × N tools = M×N custom integrations**
 
 ```
-[Internal wiki]  [Issue tracker]  [Internal DB]
-       └──────────  MCP server  ──────────┘
-                        │  (standard protocol)
-       ┌────────────────┼────────────────┐
-  [Claude.ai]     [Claude Code]     [Other clients]
+Before (M×N) — a dedicated connector per app-tool pair
+  [Claude]═[wiki]  [Claude]═[DB]  [IDE]═[wiki]  [IDE]═[DB]  [bot]═[wiki] ...
+
+After (M+N) — one connection standard: MCP
+  [Internal wiki]  [Issue tracker]  [Internal DB]
+        └──────────  MCP server  ──────────┘
+                         │  (standard protocol)
+        ┌────────────────┼────────────────┐
+   [Claude.ai]     [Claude Code]     [Other clients]
 ```
 
-- Build one MCP server; use it from every MCP client
-- Adopted industry-wide as an open standard
+- One **MCP server** per tool, one **MCP client** per app — the explosion disappears
+- "USB-C for AI" — one port instead of a different cable per device
+- An open standard (Anthropic, Nov 2024), adopted industry-wide — the shared key to internal systems
 
-**Skill ⑧ — integration design and access boundaries** (limiting permissions remains our job)
+**Skill ⑧ — integration design** (deciding what to open, with which boundaries — limiting permissions remains our job)
 
 <!--
-#13 | 3분
-- [도식 자리] 위 텍스트 도식을 그래픽으로.
+#13 | 3분 | 서사: 무슨 문제를 풀려고 나왔나
+- 서사 순서: ① 도구 사용이 열림(#8) → ② 연결마다 다른 API·인증·형식을
+  앱별로 따로 구현 (M×N 조합 폭발) → ③ 연결 "규격"을 공개 표준으로 (M+N).
+- Introduction ② 매핑 회수: 후배에게 서버·사내 시스템 접근을 주는 방법 =
+  **MCP**. "서버 할당"의 표준화.
+- 채택 언급(스피커): OpenAI(2025.03)·Google 등도 채택 ⚠️ 발표 전 재확인.
+- [도식 자리] Before/After 텍스트 도식을 그래픽으로.
 - 개념까지만. "실제 연결은 Part 2에서 Claude Code와 함께."
 - 보안 경계 언급 — #15와 연결.
 -->
