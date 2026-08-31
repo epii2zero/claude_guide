@@ -5,8 +5,8 @@ paginate: true
 ---
 
 <!--
-Part 1 slides — ENGLISH (final-deck language), 12 slides / 40 min
-(original numbering #4~15; #9 Artifacts and #12 Computer use removed; #6 and #10 each split into a/b).
+Part 1 slides — ENGLISH (final-deck language), 13 slides / 41 min
+(original numbering #4~15; #9 Artifacts and #12 Computer use removed; #6 and #10 each split into a/b; #13b added after #13).
 Copy follows the lab template's English style. Korean draft (part1-draft.md)
 remains the planning/reference version; timing and demo pointers are identical.
 Speaker notes stay in Korean for the presenter.
@@ -295,7 +295,7 @@ After (M+N) — one connection standard: MCP
 **Skill ⑧ — integration design** (deciding what to open, with which boundaries — limiting permissions remains our job)
 
 <!--
-#13 | 3분 | 서사: 무슨 문제를 풀려고 나왔나
+#13 | 2분 | 서사: 무슨 문제를 풀려고 나왔나 (#13b와 합쳐 4분)
 - 서사 순서: ① 도구 사용이 열림(#8) → ② 연결마다 다른 API·인증·형식을
   앱별로 따로 구현 (M×N 조합 폭발) → ③ 연결 "규격"을 공개 표준으로 (M+N).
 - Introduction ② 매핑 회수: 후배에게 서버·사내 시스템 접근을 주는 방법 =
@@ -304,6 +304,38 @@ After (M+N) — one connection standard: MCP
 - [도식 자리] Before/After 텍스트 도식을 그래픽으로.
 - 개념까지만. "실제 연결은 Part 2에서 Claude Code와 함께."
 - 보안 경계 언급 — #15와 연결.
+- 다음 장 예고: "그런데 REST API도 있는데 뭐가 다른가 — 좋은 질문."
+-->
+
+---
+
+# MCP — What Makes It Different from a Regular API
+
+<style scoped>
+h1 { font-size: 37px; }
+table { font-size: 19px; }
+</style>
+
+**In one line: an API is a contract a developer reads and wires up; MCP is a contract the model reads and wires up**
+
+| | Traditional API (REST, ...) | MCP |
+|---|------------------------------|-----|
+| **Who reads it** | A human — developers read the docs, write integration code | **The model** — discovers tools, descriptions, and schemas at runtime |
+| **When it connects** | At build time — hard-coded per service | At runtime — register a server and it connects dynamically |
+| **What it serves** | Endpoints (function calls) | Tools + resources (reference data) + prompts (task templates) |
+| **The contract** | Different per service (auth, formats, docs) | One open standard (JSON-RPC-based) |
+
+- The tool *descriptions* are the documentation the model reads — **good descriptions = good integration**
+- Not a replacement for existing APIs: an MCP server is **the adapter that makes your existing API legible to the model**
+
+<!--
+#13b | 2분 | 개발자 청중의 당연한 질문에 답하는 장
+- 핵심 대비: REST 통합은 사람이 미리 읽고 코드로 굳힌다, MCP는 모델이
+  그때그때 읽고 고른다 — #8의 "도구를 고르는 모델"이 연결 규격까지 내려온 것.
+- self-describing: tools/list로 서버가 자기 도구를 스스로 알려준다.
+- 마지막 불릿이 실전 함의: 사내에 REST API가 이미 있으면 MCP 서버는
+  그 위의 얇은 어댑터다.
+- #8 복선 회수: "좋은 도구 설명 = 좋은 API 문서"의 실체.
 -->
 
 ---
